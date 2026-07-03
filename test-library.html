@@ -346,28 +346,39 @@
   .tl-head-ic svg { width: 28px; height: 28px; }
   .tl-head h1 { font-family: "Tajawal", "IBM Plex Sans Arabic", sans-serif; font-size: clamp(24px, 3.4vw, 34px); font-weight: 800; color: var(--ink); letter-spacing: -.3px; }
   .tl-head p { font-size: 14.5px; color: var(--muted); margin-top: 4px; font-weight: 500; }
-  .tl-cats-label { font-size: 13px; font-weight: 800; color: var(--muted); letter-spacing: .2px; margin-bottom: 12px; }
-  .tl-cats { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 30px; }
-  .tl-cat { display: flex; align-items: center; gap: 12px; padding: 13px 18px; border: 1.5px solid var(--border-strong); border-radius: var(--r-lg); background: var(--surface); cursor: pointer; transition: all .2s; box-shadow: var(--sh-sm); }
-  .tl-cat:hover { border-color: var(--primary); transform: translateY(-2px); }
-  .tl-cat.active { border-color: var(--primary); background: var(--primary-tint); }
-  .tl-cat-ic { width: 42px; height: 42px; border-radius: 12px; display: grid; place-items: center; flex-shrink: 0; }
-  .tl-cat-ic svg { width: 21px; height: 21px; }
-  .tl-cat-txt { display: flex; flex-direction: column; line-height: 1.3; text-align: start; }
-  .tl-cat-t { font-weight: 800; font-size: 14.5px; color: var(--ink); }
-  .tl-cat-n { font-size: 12px; color: var(--muted); font-weight: 700; }
+  .tl-section-label { display: flex; align-items: center; gap: 9px; font-size: 15px; font-weight: 800; color: var(--ink); margin: 4px 0 16px; }
+  .tl-section-label svg { width: 19px; height: 19px; color: var(--primary); }
+  .dim-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(330px, 1fr)); gap: 16px; margin-bottom: 36px; }
+  .dim-card { background: var(--surface); border: 1px solid var(--border); border-top: 3px solid var(--dc); border-radius: var(--r-lg); padding: 18px; box-shadow: var(--sh-sm); transition: box-shadow .2s; }
+  .dim-card:hover { box-shadow: var(--sh-md); }
+  .dim-head { display: flex; align-items: center; gap: 12px; margin-bottom: 14px; }
+  .dim-num { width: 26px; height: 26px; border-radius: 8px; background: var(--dc); color: #fff; display: grid; place-items: center; font-weight: 800; font-size: 13px; flex-shrink: 0; }
+  .dim-ic { width: 40px; height: 40px; border-radius: 11px; display: grid; place-items: center; flex-shrink: 0; }
+  .dim-ic svg { width: 20px; height: 20px; }
+  .dim-head h3 { font-size: 15.5px; font-weight: 800; color: var(--ink); line-height: 1.3; }
+  .dim-head p { font-size: 12px; color: var(--muted); font-weight: 600; margin-top: 2px; }
+  .dim-chips { display: flex; flex-direction: column; gap: 8px; }
+  .dim-chip { display: flex; flex-direction: column; gap: 2px; text-align: start; padding: 10px 13px; border: 1px solid var(--border-strong); border-radius: 12px; background: var(--bg-soft); cursor: pointer; transition: all .18s; }
+  .dim-chip:hover { border-color: var(--dc); background: #fff; }
+  .dim-chip.active { border-color: var(--dc); background: color-mix(in srgb, var(--dc) 12%, #fff); box-shadow: var(--sh-sm); }
+  .dim-chip b { font-size: 13px; font-weight: 800; color: var(--ink); }
+  .dim-chip span { font-size: 11.5px; color: var(--muted); font-weight: 600; line-height: 1.4; }
+  .tl-active { display: inline-flex; align-items: center; gap: 8px; font-size: 12.5px; font-weight: 800; color: var(--primary-deep); background: var(--primary-tint); border: 1px solid color-mix(in srgb, var(--primary) 25%, #fff); padding: 6px 12px; border-radius: 999px; }
+  .tl-active button { border: 0; background: transparent; color: var(--primary-deep); cursor: pointer; font-size: 15px; line-height: 1; padding: 0; }
   .tl-sort { display: inline-flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 700; color: var(--muted); }
   .tl-sort select { height: 38px; padding: 0 12px; border: 1px solid var(--border-strong); border-radius: var(--r-sm); background: var(--surface); font-family: inherit; font-size: 13px; font-weight: 700; color: var(--text); }
   .tests-grid { grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); }
-  .test-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--r-lg); padding: 18px; display: flex; flex-direction: column; gap: 13px; box-shadow: var(--sh-sm); transition: all .25s; }
+  .test-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--r-lg); padding: 18px; display: flex; flex-direction: column; gap: 12px; box-shadow: var(--sh-sm); transition: all .25s; }
   .test-card:hover { border-color: color-mix(in srgb, var(--primary) 40%, var(--border)); box-shadow: var(--sh-md); transform: translateY(-3px); }
   .tc-top { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
   .tc-type { display: inline-flex; align-items: center; gap: 6px; font-size: 12px; font-weight: 800; padding: 6px 12px; border-radius: 999px; }
   .tc-type svg { width: 14px; height: 14px; }
   .tc-diff { font-size: 11.5px; font-weight: 800; padding: 5px 11px; border-radius: 999px; }
-  .tc-title { font-size: 16px; font-weight: 800; color: var(--ink); line-height: 1.45; }
-  .tc-sub { font-size: 13px; color: var(--muted); font-weight: 700; display: flex; align-items: center; gap: 7px; }
+  .tc-title { font-size: 15.5px; font-weight: 800; color: var(--ink); line-height: 1.45; }
+  .tc-sub { font-size: 13px; color: var(--muted); font-weight: 700; display: flex; align-items: center; gap: 7px; flex-wrap: wrap; }
   .tc-sub .dot { width: 4px; height: 4px; border-radius: 50%; background: var(--muted); }
+  .tc-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+  .tc-tag { font-size: 11px; font-weight: 700; color: var(--text); background: var(--bg-soft); border: 1px solid var(--border); padding: 4px 9px; border-radius: 8px; }
   .tc-meta { display: flex; flex-wrap: wrap; gap: 8px 18px; padding: 12px 0; border-top: 1px dashed var(--border); border-bottom: 1px dashed var(--border); }
   .tc-meta div { display: inline-flex; align-items: center; gap: 6px; font-size: 12.5px; color: var(--text); font-weight: 700; }
   .tc-meta svg { width: 15px; height: 15px; color: var(--primary); }
@@ -379,11 +390,10 @@
   .tc-ic:hover { border-color: var(--primary); color: var(--primary); }
   .tc-ic svg { width: 18px; height: 18px; }
   @media (max-width: 1024px) { .tests-grid { grid-template-columns: repeat(2, 1fr); } }
-  @media (max-width: 640px) { .tests-grid { grid-template-columns: 1fr; } .tl-cat { flex: 1 1 100%; } .tl-head-ic { width: 50px; height: 50px; } }
+  @media (max-width: 640px) { .tests-grid { grid-template-columns: 1fr; } .dim-grid { grid-template-columns: 1fr; } .tl-head-ic { width: 50px; height: 50px; } }
 </style>
 </head>
 <body>
-<!-- NAV -->
 <header class="nav">
   <div class="container nav-row">
     <a class="nav-logo" href="libraries.html"><img src="design-system/assets/logo-horizontal-schoobrary.png" alt="Schoobrary" /></a>
@@ -396,21 +406,21 @@
     </div>
   </div>
 </header>
-
 <main class="tl-main">
   <div class="container">
     <nav class="tl-crumb"><a href="libraries.html" data-i18n="crumb.home">الرئيسية</a><span class="sep">›</span><span data-i18n="crumb.tests">مكتبة الاختبارات</span></nav>
     <div class="tl-head">
       <span class="tl-head-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></span>
-      <div><h1 data-i18n="tests.title">مكتبة الاختبارات</h1><p data-i18n="tests.sub">اختبارات ونماذج وبنوك أسئلة جاهزة — بالمنهج وبالموضوع، للمعلّم والطالب.</p></div>
+      <div><h1 data-i18n="tests.title">مكتبة الاختبارات</h1><p data-i18n="tests.sub">تصنيف الاختبارات والتدريبات سابقة التجهيز — بالغرض والمستوى والصعوبة والمهارة.</p></div>
     </div>
-    <div class="tl-cats-label" data-i18n="tests.cats">تصنيفات الاختبارات</div>
-    <div class="tl-cats" id="cats"></div>
+    <div class="tl-section-label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg><span data-i18n="tests.cats">تصنيف الاختبارات والتدريبات سابقة التجهيز</span></div>
+    <div class="dim-grid" id="dims"></div>
+    <div class="tl-section-label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg><span data-i18n="tests.list">الاختبارات الجاهزة</span></div>
     <div class="layout">
       <aside class="sidebar" id="sidebar"></aside>
       <div class="content">
         <div class="res-topbar"><span class="res-count" id="resCount"></span>
-          <div class="tl-sort"><span data-i18n="sort.by">ترتيب:</span><select id="sortSel"></select></div>
+          <div class="tl-sort"><span id="activePill"></span><span data-i18n="sort.by">ترتيب:</span><select id="sortSel"></select></div>
         </div>
         <div class="cards-grid tests-grid" id="testGrid"></div>
         <div id="pager"></div>
@@ -418,7 +428,6 @@
     </div>
   </div>
 </main>
-
 <footer class="foot">
   <div class="container foot-row">
     <span data-i18n="foot.tagline">مكتبة الغد لتعليم اليوم.</span>
@@ -428,107 +437,116 @@
 
 <script>
 const I18N = {
- ar: {
-  "crumb.home":"الرئيسية","crumb.tests":"مكتبة الاختبارات",
-  "tests.title":"مكتبة الاختبارات","tests.sub":"اختبارات ونماذج وبنوك أسئلة جاهزة — بالمنهج وبالموضوع، للمعلّم والطالب.",
-  "tests.cats":"تصنيفات الاختبارات",
-  "cat.all":"الكل","cat.quiz":"اختبارات قصيرة","cat.final":"اختبارات نهائية","cat.model":"نماذج محلولة","cat.bank":"بنك أسئلة","cat.diag":"اختبارات تشخيصية",
-  "filter.title":"تصفية الاختبارات","f.subject":"المادة","f.grade":"الصف الدراسي","f.type":"نوع الاختبار","f.difficulty":"مستوى الصعوبة","f.duration":"المدة",
-  "btn.reset":"إعادة تعيين","btn.apply":"تطبيق الفلاتر",
-  "res.count":"عرض","res.word":"اختبار","sort.by":"ترتيب:","sort.newest":"الأحدث","sort.popular":"الأكثر استخدامًا","sort.easy":"من الأسهل للأصعب",
-  "meta.q":"سؤال","meta.min":"دقيقة","meta.marks":"درجة",
-  "diff.easy":"سهل","diff.medium":"متوسط","diff.hard":"صعب",
-  "btn.start":"بدء الاختبار",
-  "foot.tagline":"مكتبة الغد لتعليم اليوم."
- },
- en: {
-  "crumb.home":"Home","crumb.tests":"Tests Library",
-  "tests.title":"Tests Library","tests.sub":"Ready exams, models and question banks — by curriculum and by topic, for teachers and students.",
-  "tests.cats":"Test categories",
-  "cat.all":"All","cat.quiz":"Quizzes","cat.final":"Final Exams","cat.model":"Solved Models","cat.bank":"Question Bank","cat.diag":"Diagnostic",
-  "filter.title":"Filter tests","f.subject":"Subject","f.grade":"Grade","f.type":"Test type","f.difficulty":"Difficulty","f.duration":"Duration",
-  "btn.reset":"Reset","btn.apply":"Apply filters",
-  "res.count":"Showing","res.word":"tests","sort.by":"Sort:","sort.newest":"Newest","sort.popular":"Most used","sort.easy":"Easiest first",
-  "meta.q":"Qs","meta.min":"min","meta.marks":"marks",
-  "diff.easy":"Easy","diff.medium":"Medium","diff.hard":"Hard",
-  "btn.start":"Start test",
-  "foot.tagline":"Tomorrow's library for today's learning."
- }
+ ar: { "crumb.home":"الرئيسية","crumb.tests":"مكتبة الاختبارات",
+  "tests.title":"مكتبة الاختبارات","tests.sub":"تصنيف الاختبارات والتدريبات سابقة التجهيز — بالغرض والمستوى والصعوبة والمهارة.",
+  "tests.cats":"تصنيف الاختبارات والتدريبات سابقة التجهيز","tests.list":"الاختبارات الجاهزة",
+  "filter.title":"تصفية حسب التصنيف","btn.reset":"إعادة تعيين","btn.apply":"تطبيق الفلاتر",
+  "res.count":"عرض","res.word":"اختبار","all":"الكل","sort.by":"ترتيب:","sort.newest":"الأحدث","sort.popular":"الأكثر استخدامًا","sort.easy":"من الأسهل للأصعب",
+  "meta.q":"سؤال","meta.min":"دقيقة","meta.marks":"درجة","btn.start":"بدء الاختبار","clear":"مسح الفلتر",
+  "foot.tagline":"مكتبة الغد لتعليم اليوم." },
+ en: { "crumb.home":"Home","crumb.tests":"Tests Library",
+  "tests.title":"Tests Library","tests.sub":"Classification of pre-prepared tests and exercises — by purpose, level, difficulty and skill.",
+  "tests.cats":"Classification of pre-prepared tests and exercises","tests.list":"Ready tests",
+  "filter.title":"Filter by classification","btn.reset":"Reset","btn.apply":"Apply filters",
+  "res.count":"Showing","res.word":"tests","all":"All","sort.by":"Sort:","sort.newest":"Newest","sort.popular":"Most used","sort.easy":"Easiest first",
+  "meta.q":"Qs","meta.min":"min","meta.marks":"marks","btn.start":"Start test","clear":"Clear filter",
+  "foot.tagline":"Tomorrow's library for today's learning." }
 };
-let LANG="ar", CAT="all";
+let LANG="ar", FILTER=null;
 const T=()=>I18N[LANG];
 const svg=(i,w)=>`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="${w||2}" stroke-linecap="round" stroke-linejoin="round">${i}</svg>`;
 const IC={
- grid:'<rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/>',
- quiz:'<polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>',
- final:'<path d="M22 10L12 5 2 10l10 5 10-5z"/><path d="M6 12v5c3 2.5 9 2.5 12 0v-5"/>',
- model:'<path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><path d="M9 15l2 2 4-4"/>',
- bank:'<ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v6c0 1.7 4 3 9 3s9-1.3 9-3V5"/><path d="M3 11v6c0 1.7 4 3 9 3s9-1.3 9-3v-6"/>',
- diag:'<path d="M22 12h-4l-3 9L9 3l-3 9H2"/>',
- q:'<circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/>',
+ target:'<circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/>',
+ brain:'<path d="M9 18h6"/><path d="M10 22h4"/><path d="M12 2a7 7 0 0 0-4 12.7c.6.5 1 1.3 1 2.3h6c0-1 .4-1.8 1-2.3A7 7 0 0 0 12 2z"/>',
+ bars:'<line x1="6" y1="20" x2="6" y2="13"/><line x1="12" y1="20" x2="12" y2="8"/><line x1="18" y1="20" x2="18" y2="4"/>',
+ list:'<line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/>',
  clock:'<circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>',
+ star:'<polygon points="12 2 15 8.5 22 9.3 17 14 18.2 21 12 17.5 5.8 21 7 14 2 9.3 9 8.5 12 2"/>',
  award:'<circle cx="12" cy="8" r="6"/><path d="M15.5 13.5 17 22l-5-3-5 3 1.5-8.5"/>',
- play:'<polygon points="6 3 20 12 6 21 6 3"/>',
- eye:'<path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/>',
+ q:'<circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/>',
+ play:'<polygon points="6 3 20 12 6 21 6 3"/>', eye:'<path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/>',
  bookmark:'<path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/>',
- filter:'<polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"/>',
- reset:'<polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"/>'
+ filter:'<polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"/>', reset:'<polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"/>'
 };
-const CATS=[
- {k:"all",n:128,c:"#1E7BE8",ic:"grid"},
- {k:"quiz",n:46,c:"#2FA968",ic:"quiz"},
- {k:"final",n:32,c:"#1E7BE8",ic:"final"},
- {k:"model",n:28,c:"#F5A623",ic:"model"},
- {k:"bank",n:18,c:"#7A5AF8",ic:"bank"},
- {k:"diag",n:14,c:"#E5484D",ic:"diag"}
+const DIMS=[
+ {k:"purpose",n:1,c:"#1E7BE8",ic:"target",t_ar:"حسب الغرض التربوي",t_en:"By Educational Purpose",d_ar:"لماذا نُجري الاختبار",d_en:"Why we assess",subs:[
+   {k:"diagnostic",ar:"تشخيصية",en:"Diagnostic",dar:"قبل البدء لتحديد نقاط القوة والضعف والمستوى القبلي",den:"Before a unit — identify strengths, gaps and prior level"},
+   {k:"formative",ar:"تكوينية / بنائية",en:"Formative",dar:"تدريبات قصيرة مستمرة أثناء التعلّم لضمان الفهم أولاً بأول",den:"Short continuous checks during learning"},
+   {k:"summative",ar:"ختامية",en:"Summative",dar:"نهاية الوحدة أو الفصل لقياس تحقق الأهداف",den:"End of unit/term to measure objectives"},
+   {k:"remedial",ar:"علاجية",en:"Remedial",dar:"مصممة خصيصًا للطلاب الذين واجهوا صعوبات",den:"For students who faced difficulties"} ]},
+ {k:"cognitive",n:2,c:"#7A5AF8",ic:"brain",t_ar:"حسب المستوى المعرفي",t_en:"By Cognitive Level",d_ar:"عمق التفكير المطلوب",d_en:"Depth of thinking required",subs:[
+   {k:"recall",ar:"تذكر",en:"Recall",dar:"استرجاع المعلومات: تعاريف وتواريخ",den:"Retrieve facts: definitions, dates"},
+   {k:"understand",ar:"فهم",en:"Comprehension",dar:"استيعاب المعنى: شرح وتلخيص",den:"Grasp meaning: explain, summarize"},
+   {k:"apply",ar:"تطبيق",en:"Application",dar:"استخدام المعلومات في مواقف جديدة",den:"Use info in new situations"},
+   {k:"higher",ar:"تفكير عليا",en:"Higher-order",dar:"التحليل والتقويم والابتكار",den:"Analysis, evaluation, creation"} ]},
+ {k:"difficulty",n:3,c:"#F5A623",ic:"bars",t_ar:"حسب درجة الصعوبة",t_en:"By Difficulty",d_ar:"مراعاة الفروق الفردية",d_en:"For individual differences",subs:[
+   {k:"foundational",ar:"تأسيسي (سهل)",en:"Foundational (Easy)",dar:"لتمكين المهارات الأساسية",den:"Master the basics"},
+   {k:"practiced",ar:"ممارس (متوسط)",en:"Practiced (Medium)",dar:"يغطي معظم معايير المنهج المعتادة",den:"Covers standard curriculum"},
+   {k:"advanced",ar:"متقدم (صعب)",en:"Advanced (Hard)",dar:"أسئلة تحدٍّ للمتميزين والموهوبين",den:"Challenge for gifted students"} ]},
+ {k:"qtype",n:4,c:"#2FA968",ic:"list",t_ar:"حسب طبيعة الأسئلة",t_en:"By Question Type",d_ar:"شكل السؤال وطريقة الإجابة",d_en:"Question form and answering",subs:[
+   {k:"objective",ar:"موضوعية",en:"Objective",dar:"اختيار من متعدد، صح/خطأ، توصيل، ترتيب، ملء الفراغ",den:"MCQ, true/false, matching, ordering, gap-fill"},
+   {k:"essay",ar:"مقالية",en:"Essay",dar:"قصيرة وطويلة — التعبير والكتابة الإنشائية",den:"Short/long — expression and writing"},
+   {k:"interactive",ar:"تفاعلية",en:"Interactive",dar:"سحب وإفلات، تحديد على الخريطة",den:"Drag-drop, map-marking"} ]},
+ {k:"timescope",n:5,c:"#E5484D",ic:"clock",t_ar:"حسب النطاق الزمني",t_en:"By Time Scope",d_ar:"توقيت الاختبار ومدته",d_en:"Timing and duration",subs:[
+   {k:"warmup",ar:"تدريبات ٥ دقائق",en:"5-min Warm-up",dar:"تنشيطية في بداية الحصة",den:"Activation at start of class"},
+   {k:"periodic",ar:"دورية",en:"Periodic",dar:"نهاية كل شهر أو أسبوعين",den:"Monthly or biweekly"},
+   {k:"mock",ar:"تجريبية",en:"Mock",dar:"تحاكي اختبارات نهاية العام لكسر حاجز الرهبة",den:"Simulate finals to reduce anxiety"} ]},
+ {k:"skill",n:6,c:"#0EA5E9",ic:"star",t_ar:"حسب المهارة",t_en:"Skill-based",d_ar:"تختلف حسب المادة (مثال: اللغات)",d_en:"Varies by subject (e.g. languages)",subs:[
+   {k:"listening",ar:"استماع",en:"Listening",dar:"Listening",den:"Listening drills"},
+   {k:"reading",ar:"قراءة واستيعاب",en:"Reading",dar:"Reading comprehension",den:"Reading comprehension"},
+   {k:"grammar",ar:"قواعد وتركيب",en:"Grammar",dar:"Grammar & structure",den:"Grammar & structure"},
+   {k:"writing",ar:"كتابة",en:"Writing",dar:"Writing",den:"Writing drills"} ]},
+ {k:"expert",n:7,c:"#D4762A",ic:"award",t_ar:"محتوى الخبراء",t_en:"Expert Content",d_ar:"حزم جاهزة من إعداد الخبراء",d_en:"Ready expert-built packs",subs:[
+   {k:"revision",ar:"حقيبة المراجعة النهائية",en:"Final Revision Kit",dar:"اختبارات شاملة تغطي المنهج كاملاً",den:"Comprehensive full-curriculum tests"},
+   {k:"excellence",ar:"بنك التميز",en:"Excellence Bank",dar:"تدريبات في التفكير الناقد وحل المشكلات",den:"Critical thinking & problem solving"},
+   {k:"ministry",ar:"نماذج الوزارة / المعايير الوطنية",en:"Ministry / National Models",dar:"مطابقة تمامًا للمواصفات الرسمية للاختبارات القومية",den:"Matching official national exam specs"} ]}
 ];
-const TCOLOR={quiz:"#2FA968",final:"#1E7BE8",model:"#F5A623",bank:"#7A5AF8",diag:"#E5484D"};
-const DCOLOR={easy:"#2FA968",medium:"#F5A623",hard:"#E5484D"};
+function subLabel(dim,val){ const D=DIMS.find(x=>x.k===dim); if(!D) return val; const su=D.subs.find(x=>x.k===val); return su?(LANG==="ar"?su.ar:su.en):val; }
+const DIFC={foundational:"#2FA968",practiced:"#F5A623",advanced:"#E5484D"};
 const TESTS=[
- {ar:"اختبار الوحدة الأولى — الجبر",en:"Unit 1 Test — Algebra",s:{ar:"الرياضيات",en:"Mathematics"},g:{ar:"الأول المتوسط",en:"Grade 7"},type:"quiz",q:15,min:30,marks:20,diff:"easy"},
- {ar:"الاختبار النهائي — الرياضيات (الفصل الأول)",en:"Final Exam — Mathematics (Term 1)",s:{ar:"الرياضيات",en:"Mathematics"},g:{ar:"الثالث المتوسط",en:"Grade 9"},type:"final",q:40,min:90,marks:100,diff:"hard"},
- {ar:"نموذج محلول — قوانين نيوتن",en:"Solved Model — Newton's Laws",s:{ar:"الفيزياء",en:"Physics"},g:{ar:"الثاني المتوسط",en:"Grade 8"},type:"model",q:25,min:60,marks:50,diff:"medium"},
- {ar:"بنك أسئلة — القواعد النحوية",en:"Question Bank — Grammar",s:{ar:"اللغة العربية",en:"Arabic"},g:{ar:"الأول المتوسط",en:"Grade 7"},type:"bank",q:120,min:0,marks:0,diff:"medium"},
- {ar:"اختبار تشخيصي — المهارات الأساسية",en:"Diagnostic — Core Skills",s:{ar:"العلوم",en:"Science"},g:{ar:"الثاني المتوسط",en:"Grade 8"},type:"diag",q:20,min:25,marks:20,diff:"easy"},
- {ar:"اختبار قصير — Reading Comprehension",en:"Quiz — Reading Comprehension",s:{ar:"اللغة الإنجليزية",en:"English"},g:{ar:"الثالث المتوسط",en:"Grade 9"},type:"quiz",q:12,min:20,marks:15,diff:"easy"},
- {ar:"الاختبار النهائي — الكيمياء",en:"Final Exam — Chemistry",s:{ar:"الكيمياء",en:"Chemistry"},g:{ar:"الثالث المتوسط",en:"Grade 9"},type:"final",q:35,min:90,marks:100,diff:"hard"},
- {ar:"نموذج محلول — الهندسة والقياس",en:"Solved Model — Geometry & Measurement",s:{ar:"الرياضيات",en:"Mathematics"},g:{ar:"الثاني المتوسط",en:"Grade 8"},type:"model",q:30,min:70,marks:60,diff:"hard"},
- {ar:"بنك أسئلة — الدراسات الاجتماعية",en:"Question Bank — Social Studies",s:{ar:"الدراسات الاجتماعية",en:"Social Studies"},g:{ar:"الأول المتوسط",en:"Grade 7"},type:"bank",q:90,min:0,marks:0,diff:"easy"}
+ {ar:"اختبار الوحدة الأولى — الجبر",en:"Unit 1 Test — Algebra",s:{ar:"الرياضيات",en:"Mathematics"},g:{ar:"الأول المتوسط",en:"Grade 7"},purpose:"formative",cognitive:"apply",difficulty:"foundational",qtype:"objective",timescope:"warmup",expert:"",q:15,min:15,marks:20},
+ {ar:"الاختبار الختامي — الرياضيات (الفصل الأول)",en:"Summative — Mathematics (Term 1)",s:{ar:"الرياضيات",en:"Mathematics"},g:{ar:"الثالث المتوسط",en:"Grade 9"},purpose:"summative",cognitive:"higher",difficulty:"advanced",qtype:"objective",timescope:"mock",expert:"ministry",q:40,min:90,marks:100},
+ {ar:"نموذج محلول — قوانين نيوتن",en:"Solved Model — Newton's Laws",s:{ar:"الفيزياء",en:"Physics"},g:{ar:"الثاني المتوسط",en:"Grade 8"},purpose:"formative",cognitive:"understand",difficulty:"practiced",qtype:"essay",timescope:"periodic",expert:"revision",q:25,min:60,marks:50},
+ {ar:"بنك أسئلة — القواعد النحوية",en:"Question Bank — Grammar",s:{ar:"اللغة العربية",en:"Arabic"},g:{ar:"الأول المتوسط",en:"Grade 7"},purpose:"formative",cognitive:"recall",difficulty:"practiced",qtype:"objective",timescope:"periodic",skill:"grammar",expert:"excellence",q:120,min:0,marks:0},
+ {ar:"اختبار تشخيصي — المهارات الأساسية",en:"Diagnostic — Core Skills",s:{ar:"العلوم",en:"Science"},g:{ar:"الثاني المتوسط",en:"Grade 8"},purpose:"diagnostic",cognitive:"recall",difficulty:"foundational",qtype:"objective",timescope:"warmup",q:20,min:25,marks:20},
+ {ar:"تدريب استماع — English Listening",en:"Listening Drill — English",s:{ar:"اللغة الإنجليزية",en:"English"},g:{ar:"الثالث المتوسط",en:"Grade 9"},purpose:"formative",cognitive:"understand",difficulty:"foundational",qtype:"interactive",timescope:"warmup",skill:"listening",q:12,min:20,marks:15},
+ {ar:"الاختبار الختامي — الكيمياء",en:"Summative — Chemistry",s:{ar:"الكيمياء",en:"Chemistry"},g:{ar:"الثالث المتوسط",en:"Grade 9"},purpose:"summative",cognitive:"higher",difficulty:"advanced",qtype:"essay",timescope:"mock",expert:"ministry",q:35,min:90,marks:100},
+ {ar:"تدريب علاجي — الهندسة والقياس",en:"Remedial — Geometry & Measurement",s:{ar:"الرياضيات",en:"Mathematics"},g:{ar:"الثاني المتوسط",en:"Grade 8"},purpose:"remedial",cognitive:"apply",difficulty:"foundational",qtype:"objective",timescope:"periodic",expert:"revision",q:18,min:40,marks:30},
+ {ar:"نموذج وزاري — الدراسات الاجتماعية",en:"Ministry Model — Social Studies",s:{ar:"الدراسات الاجتماعية",en:"Social Studies"},g:{ar:"الأول المتوسط",en:"Grade 7"},purpose:"summative",cognitive:"understand",difficulty:"practiced",qtype:"objective",timescope:"mock",expert:"ministry",q:30,min:60,marks:60}
 ];
-const OPTS={
- "f.subject":{ar:["كل المواد","الرياضيات","العلوم","اللغة العربية","اللغة الإنجليزية","الفيزياء","الكيمياء"],en:["All subjects","Mathematics","Science","Arabic","English","Physics","Chemistry"]},
- "f.grade":{ar:["كل الصفوف","الأول المتوسط","الثاني المتوسط","الثالث المتوسط"],en:["All grades","Grade 7","Grade 8","Grade 9"]},
- "f.type":{ar:["كل الأنواع","اختبارات قصيرة","اختبارات نهائية","نماذج محلولة","بنك أسئلة","اختبارات تشخيصية"],en:["All types","Quizzes","Final Exams","Solved Models","Question Bank","Diagnostic"]},
- "f.difficulty":{ar:["كل المستويات","سهل","متوسط","صعب"],en:["All levels","Easy","Medium","Hard"]},
- "f.duration":{ar:["أي مدة","أقل من 30 دقيقة","30–60 دقيقة","أكثر من 60 دقيقة"],en:["Any duration","Under 30 min","30–60 min","Over 60 min"]}
-};
-function catsHtml(){ const d=T(); return CATS.map(c=>`<button class="tl-cat ${c.k===CAT?"active":""}" data-cat="${c.k}"><span class="tl-cat-ic" style="background:${c.c}1f;color:${c.c}">${svg(IC[c.ic],2)}</span><span class="tl-cat-txt"><span class="tl-cat-t">${d["cat."+c.k]}</span><span class="tl-cat-n">${c.n} ${d["res.word"]}</span></span></button>`).join(""); }
-function sidebarHtml(){ const d=T(); const keys=["f.subject","f.grade","f.type","f.difficulty","f.duration"];
- return `<div class="sidebar-box"><div class="sidebar-title">${svg(IC.filter)}<span>${d["filter.title"]}</span></div>${keys.map(k=>`<div class="fgroup"><div class="flabel">${d[k]}</div><select class="fselect">${OPTS[k][LANG].map(o=>`<option>${o}</option>`).join("")}</select></div>`).join("")}<button class="btn-reset">${svg(IC.reset)} ${d["btn.reset"]}</button><button class="btn-apply">${svg(IC.filter)} ${d["btn.apply"]}</button></div>`;
-}
-function cardHtml(x){ const d=T(); const tc=TCOLOR[x.type], dc=DCOLOR[x.diff];
+function dimsHtml(){ return DIMS.map(D=>`<div class="dim-card" style="--dc:${D.c}"><div class="dim-head"><span class="dim-num">${D.n}</span><span class="dim-ic" style="background:${D.c}1a;color:${D.c}">${svg(IC[D.ic])}</span><div><h3>${LANG==="ar"?D.t_ar:D.t_en}</h3><p>${LANG==="ar"?D.d_ar:D.d_en}</p></div></div><div class="dim-chips">${D.subs.map(su=>`<button class="dim-chip ${(FILTER&&FILTER.dim===D.k&&FILTER.val===su.k)?"active":""}" data-dim="${D.k}" data-val="${su.k}"><b>${LANG==="ar"?su.ar:su.en}</b><span>${LANG==="ar"?su.dar:su.den}</span></button>`).join("")}</div></div>`).join(""); }
+function sidebarHtml(){ const d=T(); return `<div class="sidebar-box"><div class="sidebar-title">${svg(IC.filter)}<span>${d["filter.title"]}</span></div>${DIMS.map(D=>`<div class="fgroup"><div class="flabel">${LANG==="ar"?D.t_ar:D.t_en}</div><select class="fselect" data-dim="${D.k}"><option value="">${d["all"]}</option>${D.subs.map(su=>`<option value="${su.k}" ${(FILTER&&FILTER.dim===D.k&&FILTER.val===su.k)?"selected":""}>${LANG==="ar"?su.ar:su.en}</option>`).join("")}</select></div>`).join("")}<button class="btn-reset" id="resetBtn">${svg(IC.reset)} ${d["btn.reset"]}</button></div>`; }
+function cardHtml(x){ const d=T(); const pc=DIMS[0].c, dc=DIFC[x.difficulty];
  const meta=[`<div>${svg(IC.q)} ${x.q} ${d["meta.q"]}</div>`];
  if(x.min) meta.push(`<div>${svg(IC.clock)} ${x.min} ${d["meta.min"]}</div>`);
  if(x.marks) meta.push(`<div>${svg(IC.award)} ${x.marks} ${d["meta.marks"]}</div>`);
+ const tags=[`<span class="tc-tag">${subLabel("cognitive",x.cognitive)}</span>`,`<span class="tc-tag">${subLabel("qtype",x.qtype)}</span>`];
+ if(x.expert) tags.push(`<span class="tc-tag">${subLabel("expert",x.expert)}</span>`);
  return `<article class="test-card">
-   <div class="tc-top"><span class="tc-type" style="background:${tc}1a;color:${tc}">${svg(IC[x.type==="quiz"?"quiz":x.type],2)} ${d["cat."+x.type]}</span><span class="tc-diff" style="background:${dc}1a;color:${dc}">${d["diff."+x.diff]}</span></div>
+   <div class="tc-top"><span class="tc-type" style="background:${pc}1a;color:${pc}">${svg(IC.target,2)} ${subLabel("purpose",x.purpose)}</span><span class="tc-diff" style="background:${dc}1a;color:${dc}">${subLabel("difficulty",x.difficulty)}</span></div>
    <div class="tc-title">${LANG==="ar"?x.ar:x.en}</div>
    <div class="tc-sub"><span>${LANG==="ar"?x.s.ar:x.s.en}</span><span class="dot"></span><span>${LANG==="ar"?x.g.ar:x.g.en}</span></div>
+   <div class="tc-tags">${tags.join("")}</div>
    <div class="tc-meta">${meta.join("")}</div>
    <div class="tc-foot"><button class="tc-start">${svg(IC.play,2)} ${d["btn.start"]}</button><button class="tc-ic" title="preview">${svg(IC.eye)}</button><button class="tc-ic" title="save">${svg(IC.bookmark)}</button></div>
  </article>`;
 }
-function pagerHtml(){ return `<div class="pagination"><button class="page-btn">«</button><button class="page-btn active">1</button><button class="page-btn">2</button><button class="page-btn">3</button><span class="page-dots">…</span><button class="page-btn">9</button><button class="page-btn">»</button></div>`; }
+function pagerHtml(n){ if(n<=8) return ""; return `<div class="pagination"><button class="page-btn">«</button><button class="page-btn active">1</button><button class="page-btn">2</button><button class="page-btn">3</button><span class="page-dots">…</span><button class="page-btn">»</button></div>`; }
 function sortHtml(){ const d=T(); return ["sort.newest","sort.popular","sort.easy"].map(k=>`<option>${d[k]}</option>`).join(""); }
+function activePill(){ const d=T(); if(!FILTER) return ""; return `<span class="tl-active">${subLabel(FILTER.dim,FILTER.val)} <button id="clearF" title="${d["clear"]}">×</button></span>`; }
 function render(){ const d=T();
- const list = CAT==="all" ? TESTS : TESTS.filter(x=>x.type===CAT);
- document.getElementById("cats").innerHTML=catsHtml();
+ const list = FILTER ? TESTS.filter(x=>x[FILTER.dim]===FILTER.val) : TESTS;
+ document.getElementById("dims").innerHTML=dimsHtml();
  document.getElementById("sidebar").innerHTML=sidebarHtml();
  document.getElementById("sortSel").innerHTML=sortHtml();
+ document.getElementById("activePill").innerHTML=activePill();
  document.getElementById("testGrid").innerHTML=list.map(cardHtml).join("");
  document.getElementById("resCount").innerHTML=`${d["res.count"]} <strong>${list.length}</strong> ${d["res.word"]}`;
- document.getElementById("pager").innerHTML=pagerHtml();
- document.querySelectorAll(".tl-cat").forEach(b=>b.addEventListener("click",()=>{ CAT=b.dataset.cat; render(); }));
+ document.getElementById("pager").innerHTML=pagerHtml(list.length);
+ document.querySelectorAll(".dim-chip").forEach(b=>b.addEventListener("click",()=>{ const dim=b.dataset.dim,val=b.dataset.val; FILTER=(FILTER&&FILTER.dim===dim&&FILTER.val===val)?null:{dim,val}; render(); document.querySelector(".layout").scrollIntoView({behavior:"smooth",block:"start"}); }));
+ document.querySelectorAll(".fselect").forEach(sel=>sel.addEventListener("change",()=>{ const dim=sel.dataset.dim,val=sel.value; FILTER=val?{dim,val}:null; render(); }));
+ const rb=document.getElementById("resetBtn"); if(rb) rb.addEventListener("click",()=>{ FILTER=null; render(); });
+ const cf=document.getElementById("clearF"); if(cf) cf.addEventListener("click",()=>{ FILTER=null; render(); });
 }
 function applyI18n(){ const d=T(); document.querySelectorAll("[data-i18n]").forEach(el=>{const k=el.getAttribute("data-i18n"); if(d[k]!=null) el.textContent=d[k];}); }
 function setLang(l){ LANG=l; document.documentElement.lang=l; document.documentElement.dir=l==="ar"?"rtl":"ltr"; document.getElementById("langLabel").textContent=l==="ar"?"EN":"ع"; applyI18n(); render(); }
