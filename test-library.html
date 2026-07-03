@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Schoobrary — البحث</title>
-<meta name="description" content="ابحث في سكوبراري: بحث عام، بالموضوع، بالمنهج، وفي المصادر الإثرائية." />
+<title>مكتبة الاختبارات | Schoobrary</title>
+<meta name="description" content="بنك اختبارات ضخم للمعلمين — فلترة ومعاينة وإسناد." />
 <link rel="icon" type="image/png" href="assets/logo.png" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -337,7 +337,7 @@
   .subicon.active { background: var(--primary); border-color: var(--primary); color: #fff; box-shadow: var(--sh-md); }
   @media (max-width: 640px) { .subicons { width: 100%; } .subicon { flex: 1 1 44%; justify-content: center; padding: 12px 10px; font-size: 13.5px; } }
 
-  /* ===== TEST BANK (master-detail) ===== */
+  /* ===== TEST BANK (master-detail, v2) ===== */
   .tb-main { flex:1; padding: 28px 0 60px; }
   .tb-crumb { display:flex; align-items:center; gap:8px; font-size:13.5px; font-weight:700; margin-bottom:14px; }
   .tb-crumb a { color:var(--muted); } .tb-crumb a:hover{color:var(--primary);} .tb-crumb .sep{color:var(--muted);}
@@ -352,18 +352,23 @@
   .tb-search button { height:44px; padding:0 24px; border:0; border-radius:var(--r-pill); background:var(--primary); color:#fff; font-weight:800; font-size:14px; }
   .tb-search button:hover{background:var(--primary-deep);}
   .tb-layout { display:grid; grid-template-columns:270px 1fr; gap:22px; align-items:start; }
-  .facets { position:sticky; top:20px; background:var(--surface); border:1px solid var(--border); border-radius:var(--r-lg); padding:8px 18px; box-shadow:var(--sh-sm); }
+  .facets { position:sticky; top:84px; background:var(--surface); border:1px solid var(--border); border-radius:var(--r-lg); padding:8px 18px; box-shadow:var(--sh-sm); }
   .facets-h { display:flex; align-items:center; justify-content:space-between; padding:12px 0 6px; }
   .facets-h span { font-size:14px; font-weight:800; color:var(--ink); display:inline-flex; align-items:center; gap:8px; }
   .facets-h svg { width:17px; height:17px; color:var(--primary); }
   .facets-h button { border:0; background:transparent; color:var(--primary); font-weight:800; font-size:12.5px; cursor:pointer; }
   .facet { border-top:1px solid var(--border); padding:12px 0; }
-  .facet-h { font-size:12.5px; font-weight:800; color:var(--muted); letter-spacing:.2px; margin-bottom:9px; text-transform:none; }
+  .facet-h { font-size:12.5px; font-weight:800; color:var(--muted); letter-spacing:.2px; margin-bottom:9px; }
   .facet-opt { display:flex; align-items:center; gap:9px; padding:5px 0; cursor:pointer; font-size:13px; color:var(--text); font-weight:600; }
   .facet-opt input { width:16px; height:16px; accent-color:var(--primary); cursor:pointer; flex-shrink:0; }
-  .facet-opt .cnt { margin-inline-start:auto; font-size:11px; color:var(--muted); font-weight:800; background:var(--bg-soft); padding:1px 8px; border-radius:999px; }
-  .facet-opt.off { opacity:.4; }
+  .facet-opt .cnt { margin-inline-start:auto; font-size:11.5px; color:var(--text); font-weight:800; background:var(--bg-soft); padding:1px 8px; border-radius:999px; }
+  .facet-opt.off { opacity:.45; }
+  .filters-toggle { display:none; height:42px; padding:0 16px; border:1px solid var(--border-strong); border-radius:var(--r-sm); background:var(--surface); font-weight:800; font-size:13px; color:var(--text); align-items:center; gap:7px; cursor:pointer; }
+  .filters-toggle svg{width:16px;height:16px;}
+  .facets-back { display:none; position:fixed; inset:0; background:rgba(20,38,60,.45); z-index:240; }
+  .facets-back.show{display:block;}
   .tb-toolbar { display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap; margin-bottom:14px; }
+  .tb-toolbar-l { display:flex; align-items:center; gap:10px; flex-wrap:wrap; }
   .tb-tabs { display:inline-flex; background:var(--bg-soft); border:1px solid var(--border); border-radius:999px; padding:4px; gap:2px; }
   .tb-tab { padding:8px 15px; border:0; background:transparent; border-radius:999px; font-weight:800; font-size:12.5px; color:var(--muted); cursor:pointer; display:inline-flex; align-items:center; gap:6px; }
   .tb-tab svg{width:14px;height:14px;} .tb-tab.active { background:var(--primary); color:#fff; }
@@ -374,8 +379,9 @@
   .chip button { border:0; background:transparent; color:inherit; cursor:pointer; font-size:14px; line-height:1; }
   .tb-count { font-size:13px; color:var(--muted); font-weight:700; margin-bottom:12px; }
   .rowlist { display:flex; flex-direction:column; gap:11px; }
-  .trow { display:flex; align-items:center; gap:15px; background:var(--surface); border:1px solid var(--border); border-radius:var(--r-lg); padding:14px 17px; box-shadow:var(--sh-sm); transition:all .18s; cursor:pointer; }
+  .trow { display:flex; align-items:center; gap:15px; background:var(--surface); border:1px solid var(--border); border-radius:var(--r-lg); padding:14px 17px; box-shadow:var(--sh-sm); transition:all .18s; cursor:pointer; text-align:start; width:100%; font-family:inherit; }
   .trow:hover { border-color:color-mix(in srgb,var(--primary) 40%,var(--border)); box-shadow:var(--sh-md); }
+  .trow:focus-visible { outline:3px solid var(--primary-tint); outline-offset:2px; border-color:var(--primary); }
   .trow.sel { border-color:var(--primary); box-shadow:0 0 0 3px var(--primary-tint); }
   .tr-fav { border:0; background:transparent; color:var(--muted); cursor:pointer; flex-shrink:0; padding:2px; }
   .tr-fav.on { color:#F5A623; } .tr-fav svg{width:20px;height:20px;}
@@ -383,7 +389,7 @@
   .tr-title { font-size:15px; font-weight:800; color:var(--ink); line-height:1.4; }
   .tr-sub { font-size:12.5px; color:var(--muted); font-weight:700; margin-top:3px; display:flex; flex-wrap:wrap; gap:5px 11px; align-items:center; }
   .tr-tags { display:flex; flex-wrap:wrap; gap:6px; margin-top:8px; }
-  .tr-tag { font-size:10.5px; font-weight:800; padding:3px 9px; border-radius:999px; }
+  .tr-tag { font-size:11px; font-weight:800; padding:3px 10px; border-radius:999px; }
   .tr-meta { display:flex; gap:14px; flex-shrink:0; }
   .tr-meta div { display:inline-flex; align-items:center; gap:5px; font-size:12.5px; color:var(--text); font-weight:700; white-space:nowrap; }
   .tr-meta svg { width:14px; height:14px; color:var(--primary); }
@@ -394,12 +400,13 @@
   .tr-preview:hover { border-color:var(--primary); color:var(--primary); }
   .tr-assign { border:0; background:var(--primary); color:#fff; }
   .tr-assign:hover { background:var(--primary-deep); }
-  .tb-empty { text-align:center; color:var(--muted); padding:50px 0; font-weight:600; }
+  .tb-empty { text-align:center; color:var(--muted); padding:44px 0; font-weight:600; display:flex; flex-direction:column; align-items:center; gap:14px; }
+  .tb-empty svg{width:40px;height:40px;color:var(--border-strong);}
   /* drawer */
   .drawer { position:fixed; inset:0; z-index:200; display:none; }
   .drawer.show { display:block; }
   .drawer-bg { position:absolute; inset:0; background:rgba(20,38,60,.5); backdrop-filter:blur(2px); }
-  .drawer-panel { position:absolute; inset-block:0; inset-inline-end:0; width:min(580px,100%); background:var(--surface); box-shadow:-20px 0 60px rgba(20,38,60,.25); display:flex; flex-direction:column; animation:dfade .28s ease; }
+  .drawer-panel { position:absolute; inset-block:0; inset-inline-end:0; width:min(580px,100%); background:var(--surface); box-shadow:0 0 70px rgba(20,38,60,.32); display:flex; flex-direction:column; animation:dfade .28s ease; }
   @keyframes dfade { from{opacity:.3;} to{opacity:1;} }
   .dh { display:flex; align-items:flex-start; gap:12px; padding:20px 22px; border-bottom:1px solid var(--border); }
   .dh h3 { font-size:17.5px; font-weight:800; color:var(--ink); line-height:1.4; }
@@ -408,8 +415,9 @@
   .dh-fav.on { color:#F5A623; } .dh-fav svg{width:19px;height:19px;}
   .dh-x { border:0; background:var(--bg-soft); width:36px; height:36px; border-radius:10px; color:var(--muted); font-size:20px; cursor:pointer; flex-shrink:0; line-height:1; }
   .db { padding:16px 22px; overflow-y:auto; flex:1; }
-  .db-bar { display:flex; align-items:center; justify-content:space-between; gap:10px; margin-bottom:14px; }
+  .db-bar { display:flex; align-items:center; justify-content:space-between; gap:10px; margin-bottom:14px; flex-wrap:wrap; }
   .db-bar b { font-size:14px; color:var(--ink); font-weight:800; }
+  .db-btns{display:flex;gap:8px;flex-wrap:wrap;}
   .db-solve { border:1.5px solid var(--primary); background:var(--surface); color:var(--primary); height:36px; padding:0 14px; border-radius:var(--r-pill); font-weight:800; font-size:12.5px; cursor:pointer; display:inline-flex; align-items:center; gap:6px; }
   .db-solve.on { background:var(--primary); color:#fff; }
   .db-solve svg{width:15px;height:15px;}
@@ -419,8 +427,9 @@
   .q-type { font-size:10.5px; font-weight:800; color:var(--primary-deep); background:var(--primary-tint); padding:3px 10px; border-radius:999px; margin-inline-start:auto; }
   .q-text { font-size:14px; font-weight:700; color:var(--ink); line-height:1.6; }
   .q-opts { display:grid; grid-template-columns:1fr 1fr; gap:8px; margin-top:11px; }
-  .q-opt { font-size:13px; color:var(--text); background:var(--surface); border:1px solid var(--border); border-radius:8px; padding:9px 12px; font-weight:600; display:flex; align-items:center; gap:8px; }
+  .q-opt { font-size:13px; color:var(--text); background:var(--surface); border:1px solid var(--border); border-radius:8px; padding:9px 12px; font-weight:600; display:flex; align-items:center; gap:8px; font-family:inherit; text-align:start; }
   .q-opt.pick { cursor:pointer; } .q-opt.pick:hover { border-color:var(--primary); }
+  .q-opt.pick:focus-visible{outline:2px solid var(--primary);}
   .q-opt.chosen { border-color:var(--primary); background:var(--primary-tint); }
   .q-opt.correct { border-color:var(--green); background:color-mix(in srgb,var(--green) 12%,#fff); }
   .q-opt.wrong { border-color:#E5484D; background:color-mix(in srgb,#E5484D 10%,#fff); }
@@ -432,7 +441,6 @@
   .df-primary:hover{background:var(--primary-deep);} .df-primary svg{width:17px;height:17px;}
   .df-ghost { height:46px; padding:0 16px; border:1.5px solid var(--border-strong); border-radius:var(--r-sm); background:var(--surface); color:var(--text); font-weight:800; font-size:13.5px; cursor:pointer; display:inline-flex; align-items:center; gap:7px; }
   .df-ghost:hover{border-color:var(--primary); color:var(--primary);} .df-ghost svg{width:16px;height:16px;}
-  /* assign modal */
   .modal { position:fixed; inset:0; background:rgba(20,38,60,.55); backdrop-filter:blur(3px); display:none; align-items:center; justify-content:center; padding:20px; z-index:210; }
   .modal.show{display:flex;}
   .modal-box { background:var(--surface); border-radius:var(--r-lg); width:min(460px,100%); box-shadow:0 30px 80px rgba(20,38,60,.35); overflow:hidden; }
@@ -442,19 +450,18 @@
   .modal-body{padding:16px 20px;} .modal-foot{display:flex;gap:9px;padding:14px 20px;border-top:1px solid var(--border);}
   .fld{margin-bottom:13px;} .fld label{display:block;font-size:12px;font-weight:800;color:var(--muted);margin-bottom:6px;}
   .fld select,.fld input{width:100%;height:44px;padding:0 13px;border:1px solid var(--border-strong);border-radius:var(--r-sm);background:var(--surface);font-family:inherit;font-size:14px;color:var(--text);}
-  .toast { position:fixed; bottom:26px; inset-inline:0; margin:0 auto; width:max-content; max-width:90%; background:var(--ink); color:#fff; padding:13px 20px; border-radius:12px; font-weight:700; font-size:14px; box-shadow:0 14px 40px rgba(20,38,60,.3); opacity:0; transform:translateY(10px); transition:all .3s; z-index:320; display:flex; align-items:center; gap:10px; pointer-events:none; }
-  .toast.show{opacity:1;transform:translateY(0);} .toast svg{width:18px;height:18px;color:#64E3A1;}
+  .toast { position:fixed; bottom:26px; inset-inline:0; margin:0 auto; width:max-content; max-width:92%; background:var(--ink); color:#fff; padding:12px 14px 12px 20px; border-radius:12px; font-weight:700; font-size:14px; box-shadow:0 14px 40px rgba(20,38,60,.3); opacity:0; transform:translateY(10px); transition:all .3s; z-index:320; display:flex; align-items:center; gap:14px; }
+  .toast.show{opacity:1;transform:translateY(0);} .toast > svg{width:18px;height:18px;color:#64E3A1;flex-shrink:0;}
+  .toast button{border:0;background:rgba(255,255,255,.15);color:#fff;font-weight:800;font-size:12.5px;padding:6px 12px;border-radius:8px;cursor:pointer;}
   #printArea { display:none; }
   @media (max-width:1024px) {
     .tb-layout { grid-template-columns:1fr; }
-    .facets { position:static; }
+    .filters-toggle { display:inline-flex; }
+    .facets { position:fixed; inset-inline:0; bottom:0; top:auto; max-height:82vh; overflow-y:auto; border-radius:20px 20px 0 0; transform:translateY(103%); transition:transform .3s cubic-bezier(.33,0,.2,1); z-index:250; box-shadow:0 -18px 50px rgba(20,38,60,.28); padding:8px 18px 26px; }
+    .facets.open { transform:translateY(0); }
     .trow { flex-wrap:wrap; } .tr-meta{order:3; width:100%; padding-top:10px; border-top:1px dashed var(--border);} .tr-act{order:4; width:100%;} .tr-act .tr-btn{flex:1; justify-content:center;}
   }
-  @media print {
-    body * { visibility:hidden; }
-    #printArea, #printArea * { visibility:visible; }
-    #printArea { display:block; position:absolute; inset:0; padding:20px; }
-  }
+  @media print { body * { visibility:hidden; } #printArea, #printArea * { visibility:visible; } #printArea { display:block; position:absolute; inset:0; padding:20px; } }
 </style>
 </head>
 <body>
@@ -472,36 +479,38 @@
     <nav class="tb-crumb"><a href="libraries.html" data-i18n="crumb.home">الرئيسية</a><span class="sep">›</span><span data-i18n="crumb.tests">مكتبة الاختبارات</span></nav>
     <div class="tb-head">
       <span class="tb-head-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></span>
-      <div><h1 data-i18n="tests.title">مكتبة الاختبارات</h1><p data-i18n="tests.sub">بنك اختبارات ضخم — فلتر، عاين الأسئلة، جرّب الحل، ثم أسنِد لطلابك.</p></div>
+      <div><h1 data-i18n="tests.title">مكتبة الاختبارات</h1><p data-i18n="tests.sub">بنك اختبارات ضخم — فلتر، عاين الأسئلة والإجابات، ثم أسنِد لطلابك.</p></div>
     </div>
-    <div class="tb-search"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg><input type="text" id="q" data-i18n-ph="search.ph" placeholder="ابحث باسم الاختبار أو المادة…" /><button id="qBtn" data-i18n="search.btn">بحث</button></div>
+    <div class="tb-search"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg><input type="text" id="q" aria-label="ابحث في بنك الاختبارات" data-i18n-ph="search.ph" placeholder="ابحث باسم الاختبار أو المادة…" /><button id="qBtn" data-i18n="search.btn">بحث</button></div>
     <div class="tb-layout">
-      <aside class="facets" id="facets"></aside>
+      <aside class="facets" id="facets" aria-label="فلاتر"></aside>
       <div>
         <div class="tb-toolbar">
-          <div class="tb-tabs" id="tabs"></div>
-          <div class="tb-sort"><span data-i18n="sort.by">ترتيب:</span><select id="sortSel"></select></div>
+          <div class="tb-toolbar-l"><button class="filters-toggle" id="fToggle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"/></svg><span data-i18n="filters">الفلاتر</span></button><div class="tb-tabs" id="tabs"></div></div>
+          <div class="tb-sort"><label for="sortSel" data-i18n="sort.by">ترتيب:</label><select id="sortSel"></select></div>
         </div>
         <div class="chips" id="chips"></div>
         <div class="tb-count" id="count"></div>
         <div class="rowlist" id="list"></div>
+        <div id="pager"></div>
         <div id="empty"></div>
       </div>
     </div>
   </div>
 </main>
 <footer class="foot"><div class="container foot-row"><span data-i18n="foot.tagline">مكتبة الغد لتعليم اليوم.</span><span>© 2026 Almotahida Education Group</span></div></footer>
-<div class="drawer" id="drawer"><div class="drawer-bg" data-close></div><div class="drawer-panel">
-  <div class="dh"><div style="flex:1"><h3 id="dTitle"></h3><div class="dh-meta" id="dMeta"></div></div><button class="dh-fav" id="dFav"></button><button class="dh-x" data-close>×</button></div>
+<div class="facets-back" id="fBack"></div>
+<div class="drawer" id="drawer"><div class="drawer-bg" data-close></div><div class="drawer-panel" role="dialog" aria-modal="true" aria-label="معاينة الاختبار">
+  <div class="dh"><div style="flex:1"><h3 id="dTitle"></h3><div class="dh-meta" id="dMeta"></div></div><button class="dh-fav" id="dFav" aria-label="مفضلة"></button><button class="dh-x" id="dClose" data-close aria-label="إغلاق">×</button></div>
   <div class="db" id="dBody"></div>
   <div class="df"><button class="df-primary" id="dAssign"></button><button class="df-ghost" id="dPdf"></button></div>
 </div></div>
-<div class="modal" id="mAssign"><div class="modal-box">
-  <div class="modal-head"><div><h3 data-i18n="assign.title">إسناد الاختبار للطلاب</h3><div class="mm" id="asName"></div></div><button class="modal-close" data-close>×</button></div>
+<div class="modal" id="mAssign"><div class="modal-box" role="dialog" aria-modal="true" aria-label="إسناد الاختبار">
+  <div class="modal-head"><div><h3 data-i18n="assign.title">إسناد الاختبار للطلاب</h3><div class="mm" id="asName"></div></div><button class="modal-close" data-close aria-label="إغلاق">×</button></div>
   <div class="modal-body">
-    <div class="fld"><label data-i18n="assign.class">الفصل / الشعبة</label><select id="asClass"></select></div>
-    <div class="fld"><label data-i18n="assign.due">تاريخ التسليم</label><input type="date" id="asDue" /></div>
-    <div class="fld"><label data-i18n="assign.note">ملاحظة (اختياري)</label><input type="text" id="asNote" data-i18n-ph="assign.notePh" placeholder="مثال: راجعوا الوحدة الأولى" /></div>
+    <div class="fld"><label for="asClass" data-i18n="assign.class">الفصل / الشعبة</label><select id="asClass"></select></div>
+    <div class="fld"><label for="asDue" data-i18n="assign.due">تاريخ التسليم</label><input type="date" id="asDue" /></div>
+    <div class="fld"><label for="asNote" data-i18n="assign.note">ملاحظة (اختياري)</label><input type="text" id="asNote" data-i18n-ph="assign.notePh" placeholder="مثال: راجعوا الوحدة الأولى" /></div>
   </div>
   <div class="modal-foot"><button class="df-primary" id="asSend" style="min-width:0"></button><button class="df-ghost" data-close data-i18n="btn.cancel">إلغاء</button></div>
 </div></div>
@@ -510,136 +519,166 @@
 
 <script>
 const I18N={
- ar:{ "crumb.home":"الرئيسية","crumb.tests":"مكتبة الاختبارات","tests.title":"مكتبة الاختبارات","tests.sub":"بنك اختبارات ضخم — فلتر، عاين الأسئلة، جرّب الحل، ثم أسنِد لطلابك.",
+ ar:{ "crumb.home":"الرئيسية","crumb.tests":"مكتبة الاختبارات","tests.title":"مكتبة الاختبارات","tests.sub":"بنك اختبارات ضخم — فلتر، عاين الأسئلة والإجابات، ثم أسنِد لطلابك.",
   "search.ph":"ابحث باسم الاختبار أو المادة…","search.btn":"بحث","filters":"الفلاتر","clear":"مسح الكل","tab.all":"الكل","tab.fav":"المفضّلة","tab.recent":"مؤخرًا",
   "sort.by":"ترتيب:","sort.newest":"الأحدث","sort.popular":"الأكثر استخدامًا","sort.qcount":"عدد الأسئلة","sort.diff":"حسب الصعوبة",
-  "res.show":"عرض","res.word":"اختبار","res.empty":"لا توجد اختبارات مطابقة.","fav.empty":"لا توجد اختبارات في المفضّلة بعد.","rec.empty":"لم تستعرض أي اختبارات بعد.",
-  "meta.q":"سؤال","meta.min":"دقيقة","meta.marks":"درجة","btn.preview":"معاينة","btn.assign":"إسناد","btn.close":"إغلاق","btn.cancel":"إلغاء",
-  "pv.q":"أسئلة الاختبار","pv.solve":"حل تجريبي","pv.grade":"تصحيح","pv.more":"… وبقية الأسئلة داخل الاختبار","pv.pdf":"تصدير PDF","pv.manual":"يُصحّح يدويًا (سؤال مقالي/قصير)",
+  "res.show":"عرض","res.empty":"لا توجد اختبارات مطابقة.","fav.empty":"لا توجد اختبارات في المفضّلة بعد.","rec.empty":"لم تستعرض أي اختبارات بعد.","clearf":"مسح الفلاتر",
+  "meta.q":"سؤال","meta.min":"دقيقة","meta.marks":"درجة","uses":"استخدام","btn.preview":"معاينة","btn.assign":"إسناد","btn.cancel":"إلغاء",
+  "pv.q":"أسئلة الاختبار","pv.answers":"إظهار الإجابات","pv.solve":"حل تجريبي","pv.grade":"تصحيح الإجابات","pv.more":"… وبقية الأسئلة داخل الاختبار","pv.pdf":"تصدير PDF","pv.manual":"يُصحّح يدويًا (سؤال مقالي/قصير)","pv.key":"مفتاح الإجابات","pv.name":"الاسم","pv.date":"التاريخ",
   "qt.mcq":"اختيار من متعدد","qt.tf":"صح / خطأ","qt.short":"إجابة قصيرة","qt.essay":"سؤال مقالي","tf.true":"صح","tf.false":"خطأ",
-  "solve.res":"نتيجتك: {s} من {t} (المصحّح آليًا)","assign.title":"إسناد الاختبار للطلاب","assign.class":"الفصل / الشعبة","assign.due":"تاريخ التسليم","assign.note":"ملاحظة (اختياري)","assign.notePh":"مثال: راجعوا الوحدة الأولى","assign.send":"إرسال للطلاب","assign.done":"تم إسناد «{t}» لطلابك","foot.tagline":"مكتبة الغد لتعليم اليوم." },
- en:{ "crumb.home":"Home","crumb.tests":"Tests Library","tests.title":"Tests Library","tests.sub":"A large test bank — filter, preview questions, try solving, then assign to your students.",
+  "solve.res":"نتيجتك: {s} من {t} (المصحّح آليًا)","assign.title":"إسناد الاختبار للطلاب","assign.class":"الفصل / الشعبة","assign.due":"تاريخ التسليم","assign.note":"ملاحظة (اختياري)","assign.notePh":"مثال: راجعوا الوحدة الأولى","assign.send":"إرسال للطلاب","assign.done":"تم إسناد «{t}» لطلابك","assign.undo":"تراجع","assign.undone":"تم التراجع عن الإسناد","foot.tagline":"مكتبة الغد لتعليم اليوم.",
+  "pl.1":"اختبار","pl.2":"اختباران","pl.f":"اختبارات","pl.m":"اختبارًا" },
+ en:{ "crumb.home":"Home","crumb.tests":"Tests Library","tests.title":"Tests Library","tests.sub":"A large test bank — filter, preview questions & answers, then assign to your students.",
   "search.ph":"Search by test name or subject…","search.btn":"Search","filters":"Filters","clear":"Clear all","tab.all":"All","tab.fav":"Favorites","tab.recent":"Recent",
   "sort.by":"Sort:","sort.newest":"Newest","sort.popular":"Most used","sort.qcount":"Question count","sort.diff":"By difficulty",
-  "res.show":"Showing","res.word":"tests","res.empty":"No matching tests.","fav.empty":"No favorites yet.","rec.empty":"You haven't previewed any tests yet.",
-  "meta.q":"Qs","meta.min":"min","meta.marks":"marks","btn.preview":"Preview","btn.assign":"Assign","btn.close":"Close","btn.cancel":"Cancel",
-  "pv.q":"Test questions","pv.solve":"Try solving","pv.grade":"Grade","pv.more":"… and the rest of the questions inside the test","pv.pdf":"Export PDF","pv.manual":"Manually graded (essay/short answer)",
+  "res.show":"Showing","res.empty":"No matching tests.","fav.empty":"No favorites yet.","rec.empty":"You haven't previewed any tests yet.","clearf":"Clear filters",
+  "meta.q":"Qs","meta.min":"min","meta.marks":"marks","uses":"uses","btn.preview":"Preview","btn.assign":"Assign","btn.cancel":"Cancel",
+  "pv.q":"Test questions","pv.answers":"Show answers","pv.solve":"Try solving","pv.grade":"Check answers","pv.more":"… and the rest of the questions inside the test","pv.pdf":"Export PDF","pv.manual":"Manually graded (essay/short answer)","pv.key":"Answer key","pv.name":"Name","pv.date":"Date",
   "qt.mcq":"Multiple choice","qt.tf":"True / False","qt.short":"Short answer","qt.essay":"Essay","tf.true":"True","tf.false":"False",
-  "solve.res":"Your score: {s} of {t} (auto-graded)","assign.title":"Assign test to students","assign.class":"Class / Section","assign.due":"Due date","assign.note":"Note (optional)","assign.notePh":"e.g. Review Unit 1","assign.send":"Send to students","assign.done":"\"{t}\" assigned to your students","foot.tagline":"Tomorrow's library for today's learning." }
+  "solve.res":"Your score: {s} of {t} (auto-graded)","assign.title":"Assign test to students","assign.class":"Class / Section","assign.due":"Due date","assign.note":"Note (optional)","assign.notePh":"e.g. Review Unit 1","assign.send":"Send to students","assign.done":"\"{t}\" assigned to your students","assign.undo":"Undo","assign.undone":"Assignment undone","foot.tagline":"Tomorrow's library for today's learning.",
+  "pl.1":"test","pl.2":"tests","pl.f":"tests","pl.m":"tests" }
 };
-let LANG="ar", Q="", TAB="all", SORT="newest", SOLVE=false, CUR=null;
+let LANG="ar", Q="", TAB="all", SORT="newest", ANS=false, SOLVE=false, CUR=null, PAGE=1; const SIZE=8;
 const T=()=>I18N[LANG];
+function plural(n){ const d=T(); if(LANG==="en") return n===1?d["pl.1"]:d["pl.2"]; if(n===1)return d["pl.1"]; if(n===2)return d["pl.2"]; if(n>=3&&n<=10)return d["pl.f"]; return d["pl.m"]; }
 const svg=(i,w)=>`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="${w||2}" stroke-linecap="round" stroke-linejoin="round">${i}</svg>`;
-const IC={q:'<circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/>',clock:'<circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>',award:'<circle cx="12" cy="8" r="6"/><path d="M15.5 13.5 17 22l-5-3-5 3 1.5-8.5"/>',eye:'<path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/>',send:'<line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/>',target:'<circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/>',check:'<path d="M20 6L9 17l-5-5"/>',star:'<polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>',clock2:'<circle cx="12" cy="12" r="10"/><polyline points="12 7 12 12 15 15"/>',grid:'<rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/>',filter:'<polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"/>',pdf:'<path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="12" y1="18" x2="12" y2="12"/><polyline points="9 15 12 18 15 15"/>',play:'<polygon points="6 3 20 12 6 21 6 3"/>'};
+const IC={q:'<circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/>',clock:'<circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>',award:'<circle cx="12" cy="8" r="6"/><path d="M15.5 13.5 17 22l-5-3-5 3 1.5-8.5"/>',eye:'<path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/>',send:'<line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/>',target:'<circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/>',check:'<path d="M20 6L9 17l-5-5"/>',star:'<polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>',clock2:'<circle cx="12" cy="12" r="10"/><polyline points="12 7 12 12 15 15"/>',grid:'<rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/>',filter:'<polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"/>',pdf:'<path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="12" y1="18" x2="12" y2="12"/><polyline points="9 15 12 18 15 15"/>',play:'<polygon points="6 3 20 12 6 21 6 3"/>',flame:'<path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/>',search:'<circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>'};
 const FDEFS=[
  {k:"subject",ar:"المادة",en:"Subject",opts:[["math","الرياضيات","Mathematics"],["science","العلوم","Science"],["arabic","اللغة العربية","Arabic"],["english","اللغة الإنجليزية","English"],["social","الدراسات الاجتماعية","Social Studies"]]},
  {k:"grade",ar:"الصف",en:"Grade",opts:[["g7","الأول المتوسط","Grade 7"],["g8","الثاني المتوسط","Grade 8"],["g9","الثالث المتوسط","Grade 9"]]},
+ {k:"curriculum",ar:"المنهج",en:"Curriculum",opts:[["moe","وزارة التعليم","Ministry (MoE)"],["cambridge","كامبريدج","Cambridge"],["ib","بكالوريا دولية","IB"]]},
+ {k:"unit",ar:"الوحدة",en:"Unit",opts:[["u1","الوحدة الأولى","Unit 1"],["u2","الوحدة الثانية","Unit 2"],["u3","الوحدة الثالثة","Unit 3"],["u4","الوحدة الرابعة","Unit 4"]]},
  {k:"purpose",ar:"الغرض التربوي",en:"Purpose",opts:[["diagnostic","تشخيصية","Diagnostic"],["formative","تكوينية","Formative"],["summative","ختامية","Summative"],["remedial","علاجية","Remedial"]]},
- {k:"difficulty",ar:"درجة الصعوبة",en:"Difficulty",opts:[["foundational","تأسيسي","Foundational"],["practiced","متوسط","Practiced"],["advanced","متقدم","Advanced"]]},
+ {k:"difficulty",ar:"درجة الصعوبة",en:"Difficulty",opts:[["foundational","تأسيسي","Foundational"],["practiced","متوسط","Intermediate"],["advanced","متقدم","Advanced"]]},
  {k:"qtype",ar:"نوع الأسئلة",en:"Question type",opts:[["objective","موضوعية","Objective"],["essay","مقالية","Essay"],["interactive","تفاعلية","Interactive"]]},
- {k:"skill",ar:"المهارة",en:"Skill",opts:[["listening","استماع","Listening"],["reading","قراءة","Reading"],["grammar","قواعد","Grammar"],["writing","كتابة","Writing"]]}
+ {k:"skill",ar:"المهارة (اللغات)",en:"Skill (languages)",opts:[["listening","استماع","Listening"],["reading","قراءة","Reading"],["grammar","قواعد","Grammar"],["writing","كتابة","Writing"]]}
 ];
 function lbl(dim,key){ const D=FDEFS.find(x=>x.k===dim); if(!D)return key; const o=D.opts.find(x=>x[0]===key); return o?(LANG==="ar"?o[1]:o[2]):key; }
+function subBoth(t){ const D=FDEFS.find(x=>x.k==="subject"); const o=D.opts.find(x=>x[0]===t.subject); return o?(o[1]+" "+o[2]):""; }
 const DIFC={foundational:"#2FA968",practiced:"#F5A623",advanced:"#E5484D"};
 const PURC="#1E7BE8", QTC="#7A5AF8";
 const CLASSES={ar:["الأول المتوسط - أ","الأول المتوسط - ب","الثاني المتوسط - أ","الثاني المتوسط - ب","الثالث المتوسط - أ"],en:["Grade 7 - A","Grade 7 - B","Grade 8 - A","Grade 8 - B","Grade 9 - A"]};
 function mcq(ar,en,o,ans){return {t:"mcq",ar,en,opts:o,ans};}
 function tf(ar,en,a){return {t:"tf",ar,en,a};}
 const TESTS=[
- {id:"t1",ar:"اختبار الوحدة الأولى — الجبر",en:"Unit 1 Test — Algebra",subject:"math",grade:"g7",purpose:"formative",difficulty:"foundational",qtype:"objective",uses:210,q:15,min:15,marks:20,qs:[mcq("ناتج ٧ × ٨ يساوي:","7 × 8 equals:",[["54","54"],["56","56"],["64","64"],["48","48"]],1),tf("العدد ٥ عدد أولي.","5 is a prime number.",true),{t:"short",ar:"أوجد قيمة س في: س + ٣ = ١٠","en":"Solve for x: x + 3 = 10"},mcq("محيط مربع طول ضلعه ٦ سم:","Perimeter of a square with side 6 cm:",[["24 سم","24 cm"],["36 سم","36 cm"],["12 سم","12 cm"],["18 سم","18 cm"]],0)]},
- {id:"t2",ar:"الاختبار الختامي — الرياضيات (ف١)",en:"Summative — Mathematics (T1)",subject:"math",grade:"g9",purpose:"summative",difficulty:"advanced",qtype:"objective",uses:540,q:40,min:90,marks:100,qs:[mcq("حل المعادلة: ٢س − ٦ = ٠","Solve: 2x − 6 = 0",[["س = 2","x = 2"],["س = 3","x = 3"],["س = 6","x = 6"],["س = -3","x = -3"]],1),tf("مجموع زوايا المثلث ١٨٠°.","Triangle angles sum to 180°.",true),{t:"essay",ar:"اشرح خطوات حل معادلة تربيعية بالتحليل.","en":"Explain solving a quadratic by factoring."}]},
- {id:"t3",ar:"اختبار تشخيصي — المهارات الأساسية","en":"Diagnostic — Core Skills",subject:"science",grade:"g8",purpose:"diagnostic",difficulty:"foundational",qtype:"objective",uses:95,q:20,min:25,marks:20,qs:[mcq("أي مما يلي حالة من حالات المادة؟","Which is a state of matter?",[["السرعة","Speed"],["الغاز","Gas"],["الطاقة","Energy"],["الكثافة","Density"]],1),tf("الماء يغلي عند ١٠٠° مئوية.","Water boils at 100°C.",true),{t:"short",ar:"اذكر ثلاثة من الحواس الخمس.","en":"Name three of the five senses."}]},
- {id:"t4",ar:"بنك أسئلة — القواعد النحوية","en":"Question Bank — Grammar",subject:"arabic",grade:"g7",purpose:"formative",difficulty:"practiced",qtype:"objective",skill:"grammar",uses:320,q:120,min:0,marks:0,qs:[mcq("«ذهبَ الطالبُ» — نوع الجملة:","Sentence type of 'ذهب الطالب':",[["اسمية","Nominal"],["فعلية","Verbal"],["شرطية","Conditional"],["تعجبية","Exclamatory"]],1),tf("الفاعل دائمًا مرفوع.","The subject is always nominative.",true),{t:"short",ar:"أعرب كلمة «الطالبُ».","en":"Parse the word 'الطالبُ'."}]},
- {id:"t5",ar:"تدريب استماع — English Listening","en":"Listening Drill — English",subject:"english",grade:"g9",purpose:"formative",difficulty:"foundational",qtype:"interactive",skill:"listening",uses:140,q:12,min:20,marks:15,qs:[mcq("Listen and choose the correct word:","Listen and choose the correct word:",[["Ship","Ship"],["Sheep","Sheep"],["Shape","Shape"],["Shop","Shop"]],1),{t:"short",ar:"Write the missing word you heard.","en":"Write the missing word you heard."}]},
- {id:"t6",ar:"الاختبار الختامي — الكيمياء","en":"Summative — Chemistry",subject:"science",grade:"g9",purpose:"summative",difficulty:"advanced",qtype:"essay",uses:410,q:35,min:90,marks:100,qs:[mcq("الرمز الكيميائي للماء:","Chemical symbol of water:",[["CO₂","CO₂"],["H₂O","H₂O"],["O₂","O₂"],["NaCl","NaCl"]],1),{t:"essay",ar:"وضّح الفرق بين التفاعل الطارد والماص للحرارة.","en":"Explain exothermic vs endothermic reactions."}]},
- {id:"t7",ar:"تدريب علاجي — الهندسة والقياس","en":"Remedial — Geometry & Measurement",subject:"math",grade:"g8",purpose:"remedial",difficulty:"foundational",qtype:"objective",uses:80,q:18,min:40,marks:30,qs:[mcq("مساحة مستطيل أبعاده ٤×٥:","Area of a 4×5 rectangle:",[["9","9"],["20","20"],["18","18"],["40","40"]],1),tf("للمربع أربعة أضلاع متساوية.","A square has four equal sides.",true)]},
- {id:"t8",ar:"نموذج وزاري — الدراسات الاجتماعية","en":"Ministry Model — Social Studies",subject:"social",grade:"g7",purpose:"summative",difficulty:"practiced",qtype:"objective",uses:260,q:30,min:60,marks:60,qs:[mcq("أي مما يلي من مصادر المياه العذبة؟","Which is a source of fresh water?",[["البحار","Seas"],["الأنهار","Rivers"],["المحيطات","Oceans"],["الخلجان","Gulfs"]],1),{t:"short",ar:"اذكر عاملين لقيام الحضارات القديمة.","en":"Name two factors behind ancient civilizations."}]}
+ {id:"t1",ar:"اختبار الوحدة الأولى — الجبر",en:"Unit 1 Test — Algebra",subject:"math",grade:"g7",curriculum:"moe",unit:"u1",purpose:"formative",difficulty:"foundational",qtype:"objective",uses:210,date:"2026-06-20",q:15,min:15,marks:20,qs:[mcq("ناتج 7 × 8 يساوي:","7 × 8 equals:",[["54","54"],["56","56"],["64","64"],["48","48"]],1),tf("العدد 5 عدد أولي.","5 is a prime number.",true),{t:"short",ar:"أوجد قيمة س في: س + 3 = 10","en":"Solve for x: x + 3 = 10"},mcq("محيط مربع طول ضلعه 6 سم:","Perimeter of a square with side 6 cm:",[["24 سم","24 cm"],["36 سم","36 cm"],["12 سم","12 cm"],["18 سم","18 cm"]],0)]},
+ {id:"t2",ar:"الاختبار الختامي — الرياضيات (ف1)",en:"Summative — Mathematics (T1)",subject:"math",grade:"g9",curriculum:"moe",unit:"u4",purpose:"summative",difficulty:"advanced",qtype:"objective",uses:540,date:"2026-06-28",q:40,min:90,marks:100,qs:[mcq("حل المعادلة: 2س − 6 = 0","Solve: 2x − 6 = 0",[["س = 2","x = 2"],["س = 3","x = 3"],["س = 6","x = 6"],["س = -3","x = -3"]],1),tf("مجموع زوايا المثلث 180°.","Triangle angles sum to 180°.",true),{t:"essay",ar:"اشرح خطوات حل معادلة تربيعية بالتحليل.","en":"Explain solving a quadratic by factoring."}]},
+ {id:"t3",ar:"اختبار تشخيصي — المهارات الأساسية","en":"Diagnostic — Core Skills",subject:"science",grade:"g8",curriculum:"moe",unit:"u1",purpose:"diagnostic",difficulty:"foundational",qtype:"objective",uses:95,date:"2026-05-30",q:20,min:25,marks:20,qs:[mcq("أي مما يلي حالة من حالات المادة؟","Which is a state of matter?",[["السرعة","Speed"],["الغاز","Gas"],["الطاقة","Energy"],["الكثافة","Density"]],1),tf("الماء يغلي عند 100° مئوية.","Water boils at 100°C.",true),{t:"short",ar:"اذكر ثلاثة من الحواس الخمس.","en":"Name three of the five senses."}]},
+ {id:"t4",ar:"بنك أسئلة — القواعد النحوية","en":"Question Bank — Grammar",subject:"arabic",grade:"g7",curriculum:"moe",unit:"u2",purpose:"formative",difficulty:"practiced",qtype:"objective",skill:"grammar",uses:320,date:"2026-06-15",q:120,min:0,marks:0,qs:[mcq("«ذهبَ الطالبُ» — نوع الجملة:","Sentence type of 'ذهب الطالب':",[["اسمية","Nominal"],["فعلية","Verbal"],["شرطية","Conditional"],["تعجبية","Exclamatory"]],1),tf("الفاعل دائمًا مرفوع.","The subject is always nominative.",true),{t:"short",ar:"أعرب كلمة «الطالبُ».","en":"Parse the word 'الطالبُ'."}]},
+ {id:"t5",ar:"تدريب استماع — English Listening","en":"Listening Drill — English",subject:"english",grade:"g9",curriculum:"cambridge",unit:"u2",purpose:"formative",difficulty:"foundational",qtype:"interactive",skill:"listening",uses:140,date:"2026-06-10",q:12,min:20,marks:15,qs:[mcq("Listen and choose the correct word:","Listen and choose the correct word:",[["Ship","Ship"],["Sheep","Sheep"],["Shape","Shape"],["Shop","Shop"]],1),{t:"short",ar:"Write the missing word you heard.","en":"Write the missing word you heard."}]},
+ {id:"t6",ar:"الاختبار الختامي — الكيمياء","en":"Summative — Chemistry",subject:"science",grade:"g9",curriculum:"moe",unit:"u3",purpose:"summative",difficulty:"advanced",qtype:"essay",uses:410,date:"2026-06-25",q:35,min:90,marks:100,qs:[mcq("الرمز الكيميائي للماء:","Chemical symbol of water:",[["CO₂","CO₂"],["H₂O","H₂O"],["O₂","O₂"],["NaCl","NaCl"]],1),{t:"essay",ar:"وضّح الفرق بين التفاعل الطارد والماص للحرارة.","en":"Explain exothermic vs endothermic reactions."}]},
+ {id:"t7",ar:"تدريب علاجي — الهندسة والقياس","en":"Remedial — Geometry & Measurement",subject:"math",grade:"g8",curriculum:"moe",unit:"u2",purpose:"remedial",difficulty:"foundational",qtype:"objective",uses:80,date:"2026-06-05",q:18,min:40,marks:30,qs:[mcq("مساحة مستطيل أبعاده 4×5:","Area of a 4×5 rectangle:",[["9","9"],["20","20"],["18","18"],["40","40"]],1),tf("للمربع أربعة أضلاع متساوية.","A square has four equal sides.",true)]},
+ {id:"t8",ar:"نموذج وزاري — الدراسات الاجتماعية","en":"Ministry Model — Social Studies",subject:"social",grade:"g7",curriculum:"moe",unit:"u3",purpose:"summative",difficulty:"practiced",qtype:"objective",uses:260,date:"2026-06-22",q:30,min:60,marks:60,qs:[mcq("أي مما يلي من مصادر المياه العذبة؟","Which is a source of fresh water?",[["البحار","Seas"],["الأنهار","Rivers"],["المحيطات","Oceans"],["الخلجان","Gulfs"]],1),{t:"short",ar:"اذكر عاملين لقيام الحضارات القديمة.","en":"Name two factors behind ancient civilizations."}]},
+ {id:"t9",ar:"تدريب قراءة واستيعاب — English Reading","en":"Reading Comprehension — English",subject:"english",grade:"g8",curriculum:"cambridge",unit:"u1",purpose:"formative",difficulty:"practiced",qtype:"objective",skill:"reading",uses:175,date:"2026-06-18",q:14,min:30,marks:20,qs:[mcq("Read the passage. What is the main idea?","Read the passage. What is the main idea?",[["A holiday plan","A holiday plan"],["Protecting the environment","Protecting the environment"],["A recipe","A recipe"],["A football match","A football match"]],1),{t:"short",ar:"Find a synonym for the word 'huge' in the text.","en":"Find a synonym for the word 'huge' in the text."}]},
+ {id:"t10",ar:"اختبار كتابة — التعبير الكتابي","en":"Writing Test — Composition",subject:"arabic",grade:"g9",curriculum:"moe",unit:"u4",purpose:"summative",difficulty:"practiced",qtype:"essay",skill:"writing",uses:130,date:"2026-06-12",q:6,min:45,marks:40,qs:[{t:"essay",ar:"اكتب فقرة من 8 أسطر عن أهمية القراءة في بناء الشخصية.","en":"Write an 8-line paragraph on the importance of reading."},{t:"short",ar:"استخرج من فقرتك جملة اسمية وأخرى فعلية.","en":"From your paragraph, extract a nominal and a verbal sentence."}]}
 ];
 const DIFORD={foundational:0,practiced:1,advanced:2};
 let MEM={}; function lsGet(k){try{return JSON.parse(localStorage.getItem(k)||"[]");}catch(e){return MEM[k]||[];}} function lsSet(k,v){try{localStorage.setItem(k,JSON.stringify(v));}catch(e){MEM[k]=v;}}
 let FAV=lsGet("tb_fav"), REC=lsGet("tb_rec");
 let F={}; FDEFS.forEach(D=>F[D.k]=new Set());
-function passFilters(t,skipDim){ for(const D of FDEFS){ if(D.k===skipDim) continue; const s=F[D.k]; if(s.size && !s.has(t[D.k])) return false; } if(Q){ const s=((LANG==="ar"?t.ar:t.en)+" "+lbl("subject",t.subject)).toLowerCase(); if(!s.includes(Q)) return false; } return true; }
-function baseList(){ let L=TESTS.filter(t=>passFilters(t)); if(TAB==="fav") L=L.filter(t=>FAV.includes(t.id)); if(TAB==="recent"){ const idx={}; REC.forEach((id,i)=>idx[id]=i); L=L.filter(t=>REC.includes(t.id)).sort((a,b)=>idx[a.id]-idx[b.id]); return L; } if(SORT==="popular") L=[...L].sort((a,b)=>b.uses-a.uses); else if(SORT==="qcount") L=[...L].sort((a,b)=>b.q-a.q); else if(SORT==="diff") L=[...L].sort((a,b)=>DIFORD[a.difficulty]-DIFORD[b.difficulty]); return L; }
+function passFilters(t,skipDim){ for(const D of FDEFS){ if(D.k===skipDim) continue; const s=F[D.k]; if(s.size && !s.has(t[D.k])) return false; } if(Q){ const s=(t.ar+" "+t.en+" "+subBoth(t)).toLowerCase(); if(!s.includes(Q)) return false; } return true; }
+function baseList(){ let L=TESTS.filter(t=>passFilters(t)); if(TAB==="fav") L=L.filter(t=>FAV.includes(t.id)); if(TAB==="recent"){ const idx={}; REC.forEach((id,i)=>idx[id]=i); L=L.filter(t=>REC.includes(t.id)).sort((a,b)=>idx[a.id]-idx[b.id]); return L; } if(SORT==="popular") L=[...L].sort((a,b)=>b.uses-a.uses); else if(SORT==="qcount") L=[...L].sort((a,b)=>b.q-a.q); else if(SORT==="diff") L=[...L].sort((a,b)=>DIFORD[a.difficulty]-DIFORD[b.difficulty]); else L=[...L].sort((a,b)=>b.date.localeCompare(a.date)); return L; }
 function facetsHtml(){ const d=T(); const anyF=FDEFS.some(D=>F[D.k].size)||Q; return `<div class="facets-h"><span>${svg(IC.filter)} ${d["filters"]}</span>${anyF?`<button id="clrAll">${d["clear"]}</button>`:""}</div>`+FDEFS.map(D=>`<div class="facet"><div class="facet-h">${LANG==="ar"?D.ar:D.en}</div>${D.opts.map(o=>{const c=TESTS.filter(t=>passFilters(t,D.k)&&t[D.k]===o[0]).length; const on=F[D.k].has(o[0]); return `<label class="facet-opt ${c===0&&!on?"off":""}"><input type="checkbox" data-dim="${D.k}" data-val="${o[0]}" ${on?"checked":""}><span>${LANG==="ar"?o[1]:o[2]}</span><span class="cnt">${c}</span></label>`;}).join("")}</div>`).join(""); }
 function tabsHtml(){ const d=T(); return [["all","grid"],["fav","star"],["recent","clock2"]].map(([k,ic])=>`<button class="tb-tab ${TAB===k?"active":""}" data-tab="${k}">${svg(IC[ic])} ${d["tab."+k]}</button>`).join(""); }
-function chipsHtml(){ let out=[]; FDEFS.forEach(D=>F[D.k].forEach(v=>out.push(`<span class="chip">${lbl(D.k,v)} <button data-dim="${D.k}" data-val="${v}">×</button></span>`))); return out.join(""); }
+function chipsHtml(){ const d=T(); let out=[]; if(Q) out.push(`<span class="chip">${svg(IC.search,2)} "${Q}" <button data-clearq>×</button></span>`); FDEFS.forEach(D=>F[D.k].forEach(v=>out.push(`<span class="chip">${lbl(D.k,v)} <button data-dim="${D.k}" data-val="${v}">×</button></span>`))); return out.join(""); }
 function sortHtml(){ const d=T(); return ["newest","popular","qcount","diff"].map(k=>`<option value="${k}" ${SORT===k?"selected":""}>${d["sort."+k]}</option>`).join(""); }
 function tagsHtml(t){ return `<span class="tr-tag" style="background:${PURC}1a;color:${PURC}">${lbl("purpose",t.purpose)}</span><span class="tr-tag" style="background:${DIFC[t.difficulty]}1a;color:${DIFC[t.difficulty]}">${lbl("difficulty",t.difficulty)}</span><span class="tr-tag" style="background:${QTC}14;color:${QTC}">${lbl("qtype",t.qtype)}</span>`; }
-function rowHtml(t){ const d=T(); const meta=[`<div>${svg(IC.q)} ${t.q} ${d["meta.q"]}</div>`]; if(t.min)meta.push(`<div>${svg(IC.clock)} ${t.min} ${d["meta.min"]}</div>`); if(t.marks)meta.push(`<div>${svg(IC.award)} ${t.marks} ${d["meta.marks"]}</div>`);
- return `<div class="trow ${CUR===t.id?"sel":""}" data-id="${t.id}"><button class="tr-fav ${FAV.includes(t.id)?"on":""}" data-fav="${t.id}">${svg(IC.star, FAV.includes(t.id)?0:2)}</button><div class="tr-main"><div class="tr-title">${LANG==="ar"?t.ar:t.en}</div><div class="tr-sub"><span>${lbl("subject",t.subject)}</span><span>·</span><span>${lbl("grade",t.grade)}</span></div><div class="tr-tags">${tagsHtml(t)}</div></div><div class="tr-meta">${meta.join("")}</div><div class="tr-act"><button class="tr-btn tr-preview" data-prev="${t.id}">${svg(IC.eye)} ${d["btn.preview"]}</button><button class="tr-btn tr-assign" data-assign="${t.id}">${svg(IC.send)} ${d["btn.assign"]}</button></div></div>`; }
+function rowHtml(t){ const d=T(); const meta=[`<div>${svg(IC.q)} ${t.q} ${d["meta.q"]}</div>`]; if(t.min)meta.push(`<div>${svg(IC.clock)} ${t.min} ${d["meta.min"]}</div>`); if(t.marks)meta.push(`<div>${svg(IC.award)} ${t.marks} ${d["meta.marks"]}</div>`); meta.push(`<div>${svg(IC.flame)} ${t.uses} ${d["uses"]}</div>`);
+ return `<div class="trow ${CUR===t.id?"sel":""}" data-id="${t.id}" role="button" tabindex="0" aria-label="${LANG==="ar"?t.ar:t.en}"><button class="tr-fav ${FAV.includes(t.id)?"on":""}" data-fav="${t.id}" aria-label="مفضلة">${svg(IC.star, FAV.includes(t.id)?0:2)}</button><div class="tr-main"><div class="tr-title">${LANG==="ar"?t.ar:t.en}</div><div class="tr-sub"><span>${lbl("subject",t.subject)}</span><span>·</span><span>${lbl("grade",t.grade)}</span><span>·</span><span>${lbl("unit",t.unit)}</span></div><div class="tr-tags">${tagsHtml(t)}</div></div><div class="tr-meta">${meta.join("")}</div><div class="tr-act"><button class="tr-btn tr-preview" data-prev="${t.id}">${svg(IC.eye)} ${d["btn.preview"]}</button><button class="tr-btn tr-assign" data-assign="${t.id}">${svg(IC.send)} ${d["btn.assign"]}</button></div></div>`; }
+function pagerHtml(pages){ if(pages<=1)return ""; let b=`<button class="page-btn" data-pg="${PAGE-1}" ${PAGE===1?"disabled":""}>‹</button>`; for(let i=1;i<=pages;i++) b+=`<button class="page-btn ${i===PAGE?"active":""}" data-pg="${i}">${i}</button>`; b+=`<button class="page-btn" data-pg="${PAGE+1}" ${PAGE===pages?"disabled":""}>›</button>`; return `<div class="pagination" style="margin-top:18px">${b}</div>`; }
 function render(){ const d=T();
  document.getElementById("facets").innerHTML=facetsHtml();
  document.getElementById("tabs").innerHTML=tabsHtml();
  document.getElementById("chips").innerHTML=chipsHtml();
  document.getElementById("sortSel").innerHTML=sortHtml();
- const L=baseList();
- document.getElementById("count").innerHTML=`${d["res.show"]} <strong>${L.length}</strong> ${d["res.word"]}`;
- document.getElementById("list").innerHTML=L.map(rowHtml).join("");
- const emptyKey=TAB==="fav"?"fav.empty":TAB==="recent"?"rec.empty":"res.empty";
- document.getElementById("empty").innerHTML=L.length?"":`<div class="tb-empty">${d[emptyKey]}</div>`;
- wire();
+ const L=baseList(); const pages=Math.ceil(L.length/SIZE)||1; if(PAGE>pages)PAGE=pages; const slice=L.slice((PAGE-1)*SIZE,PAGE*SIZE);
+ document.getElementById("count").innerHTML=`${d["res.show"]} <strong>${L.length}</strong> ${plural(L.length)}`;
+ document.getElementById("list").innerHTML=slice.map(rowHtml).join("");
+ document.getElementById("pager").innerHTML=pagerHtml(pages);
+ const ek=TAB==="fav"?"fav.empty":TAB==="recent"?"rec.empty":"res.empty";
+ document.getElementById("empty").innerHTML=L.length?"":`<div class="tb-empty">${svg(IC.search,1.5)}<div>${d[ek]}</div><button class="tb-clear" id="emptyClear">${d["clearf"]}</button></div>`;
+ syncURL(); wire();
 }
 function wire(){
- document.querySelectorAll('.facet-opt input').forEach(c=>c.addEventListener("change",()=>{ const s=F[c.dataset.dim]; c.checked?s.add(c.dataset.val):s.delete(c.dataset.val); render(); }));
- const ca=document.getElementById("clrAll"); if(ca)ca.addEventListener("click",()=>{ FDEFS.forEach(D=>F[D.k].clear()); Q=""; document.getElementById("q").value=""; render(); });
- document.querySelectorAll(".tb-tab").forEach(b=>b.addEventListener("click",()=>{ TAB=b.dataset.tab; render(); }));
- document.querySelectorAll(".chip button").forEach(b=>b.addEventListener("click",()=>{ F[b.dataset.dim].delete(b.dataset.val); render(); }));
+ document.querySelectorAll('.facet-opt input').forEach(c=>c.addEventListener("change",()=>{ const s=F[c.dataset.dim]; c.checked?s.add(c.dataset.val):s.delete(c.dataset.val); PAGE=1; render(); }));
+ const ca=document.getElementById("clrAll"); if(ca)ca.addEventListener("click",clearAll);
+ const ec=document.getElementById("emptyClear"); if(ec)ec.addEventListener("click",clearAll);
+ document.querySelectorAll(".tb-tab").forEach(b=>b.addEventListener("click",()=>{ TAB=b.dataset.tab; PAGE=1; render(); }));
+ document.querySelectorAll(".chip button[data-dim]").forEach(b=>b.addEventListener("click",()=>{ F[b.dataset.dim].delete(b.dataset.val); PAGE=1; render(); }));
+ document.querySelectorAll(".chip button[data-clearq]").forEach(b=>b.addEventListener("click",()=>{ Q=""; document.getElementById("q").value=""; PAGE=1; render(); }));
  document.querySelectorAll("[data-fav]").forEach(b=>b.addEventListener("click",e=>{ e.stopPropagation(); toggleFav(b.dataset.fav); }));
- document.querySelectorAll(".trow").forEach(r=>r.addEventListener("click",()=>openDrawer(r.dataset.id)));
+ document.querySelectorAll(".trow").forEach(r=>{ r.addEventListener("click",()=>openDrawer(r.dataset.id)); r.addEventListener("keydown",e=>{ if(e.key==="Enter"||e.key===" "){ e.preventDefault(); openDrawer(r.dataset.id); } }); });
  document.querySelectorAll("[data-prev]").forEach(b=>b.addEventListener("click",e=>{ e.stopPropagation(); openDrawer(b.dataset.prev); }));
  document.querySelectorAll("[data-assign]").forEach(b=>b.addEventListener("click",e=>{ e.stopPropagation(); openAssign(b.dataset.assign); }));
+ document.querySelectorAll(".page-btn[data-pg]").forEach(b=>b.addEventListener("click",()=>{ if(b.disabled)return; PAGE=+b.dataset.pg; render(); window.scrollTo({top:0,behavior:"smooth"}); }));
 }
+function clearAll(){ FDEFS.forEach(D=>F[D.k].clear()); Q=""; document.getElementById("q").value=""; PAGE=1; render(); }
 function toggleFav(id){ if(FAV.includes(id))FAV=FAV.filter(x=>x!==id); else FAV=[id,...FAV]; lsSet("tb_fav",FAV); render(); if(CUR===id)refreshDrawerFav(); }
 function tid(id){ return TESTS.find(t=>t.id===id); }
-function refreshDrawerFav(){ const t=tid(CUR); const el=document.getElementById("dFav"); el.className="dh-fav "+(FAV.includes(CUR)?"on":""); el.innerHTML=svg(IC.star,FAV.includes(CUR)?0:2); }
+function refreshDrawerFav(){ const el=document.getElementById("dFav"); el.className="dh-fav "+(FAV.includes(CUR)?"on":""); el.innerHTML=svg(IC.star,FAV.includes(CUR)?0:2); }
+function correctIdx(qz){ return qz.t==="tf"?(qz.a?0:1):qz.ans; }
 function qHtml(qz,i){ const d=T(); let body="";
- if(qz.t==="mcq"||qz.t==="tf"){ const opts=qz.t==="tf"?[[d["tf.true"]],[d["tf.false"]]]:qz.opts.map(o=>[LANG==="ar"?o[0]:o[1]]); const correct=qz.t==="tf"?(qz.a?0:1):qz.ans;
-   body=`<div class="q-opts">${opts.map((o,j)=>`<div class="q-opt ${SOLVE?"pick":""}" data-q="${i}" data-opt="${j}" data-correct="${correct}">${String.fromCharCode(65+j)}. ${o[0]}</div>`).join("")}</div>`; }
+ if(qz.t==="mcq"||qz.t==="tf"){ const opts=qz.t==="tf"?[[d["tf.true"]],[d["tf.false"]]]:qz.opts.map(o=>[LANG==="ar"?o[0]:o[1]]); const cc=correctIdx(qz);
+   body=`<div class="q-opts">${opts.map((o,j)=>{ let cls="q-opt"; if(SOLVE)cls+=" pick"; if(ANS&&j===cc)cls+=" correct"; const attr=SOLVE?`role="button" tabindex="0"`:""; return `<div class="${cls}" ${attr} data-q="${i}" data-opt="${j}" data-cc="${cc}">${String.fromCharCode(65+j)}. ${o[0]}</div>`;}).join("")}</div>`; }
  else { body=`<div class="q-manual">${d["pv.manual"]}</div>`; }
  return `<div class="q-item"><div class="q-top"><span class="q-num">${i+1}</span><span class="q-text">${LANG==="ar"?qz.ar:qz.en}</span><span class="q-type">${d["qt."+qz.t]}</span></div>${body}</div>`; }
-function drawerBody(){ const d=T(),t=tid(CUR); const solveBtn=`<button class="db-solve ${SOLVE?"on":""}" id="solveBtn">${svg(IC.play)} ${SOLVE?d["pv.grade"]:d["pv.solve"]}</button>`;
- return `<div class="db-bar"><b>${d["pv.q"]}</b>${solveBtn}</div><div id="solveRes"></div>${t.qs.map(qHtml).join("")}<div style="text-align:center;color:var(--muted);font-size:12px;font-weight:600;padding:4px 0">${d["pv.more"]}</div>`; }
-function openDrawer(id){ CUR=id; const d=T(),t=tid(id); SOLVE=false;
+function drawerBody(){ const d=T(),t=tid(CUR);
+ const bar=`<div class="db-bar"><b>${d["pv.q"]}</b><div class="db-btns"><button class="db-solve ${ANS?"on":""}" id="ansBtn">${svg(IC.eye)} ${d["pv.answers"]}</button><button class="db-solve ${SOLVE?"on":""}" id="solveBtn">${svg(IC.play)} ${d["pv.solve"]}</button></div></div>`;
+ const submit=SOLVE?`<button class="df-primary" id="submitSolve" style="margin-top:2px">${svg(IC.check)} ${d["pv.grade"]}</button>`:"";
+ return bar+`<div id="solveRes"></div>`+t.qs.map(qHtml).join("")+`<div style="text-align:center;color:var(--muted);font-size:12px;font-weight:600;padding:4px 0 12px">${d["pv.more"]}</div>`+submit; }
+function renderDrawerBody(){ document.getElementById("dBody").innerHTML=drawerBody(); wireDrawer(); }
+function wireDrawer(){ const d=T();
+ const ab=document.getElementById("ansBtn"); if(ab)ab.addEventListener("click",()=>{ ANS=!ANS; if(ANS)SOLVE=false; renderDrawerBody(); });
+ const sb=document.getElementById("solveBtn"); if(sb)sb.addEventListener("click",()=>{ SOLVE=!SOLVE; if(SOLVE)ANS=false; renderDrawerBody(); });
+ const ss=document.getElementById("submitSolve"); if(ss)ss.addEventListener("click",gradeSolve);
+ document.querySelectorAll(".q-opt.pick").forEach(o=>{ const pick=()=>{ document.querySelectorAll(`.q-opt[data-q="${o.dataset.q}"]`).forEach(x=>x.classList.remove("chosen")); o.classList.add("chosen"); }; o.addEventListener("click",pick); o.addEventListener("keydown",e=>{ if(e.key==="Enter"||e.key===" "){ e.preventDefault(); pick(); } }); }); }
+function gradeSolve(){ const d=T(),t=tid(CUR); let auto=0,correct=0;
+ t.qs.forEach((qz,i)=>{ if(qz.t==="mcq"||qz.t==="tf"){ auto++; const chosen=document.querySelector(`.q-opt[data-q="${i}"].chosen`); const cc=correctIdx(qz); document.querySelectorAll(`.q-opt[data-q="${i}"]`).forEach(o=>{ const j=+o.dataset.opt; o.classList.remove("pick"); if(j===cc)o.classList.add("correct"); if(chosen&&+chosen.dataset.opt===j&&j!==cc)o.classList.add("wrong"); }); if(chosen&&+chosen.dataset.opt===cc)correct++; } });
+ document.getElementById("solveRes").innerHTML=`<div class="solve-res">${svg(IC.check)} ${d["solve.res"].replace("{s}",correct).replace("{t}",auto)}</div>`;
+ const ss=document.getElementById("submitSolve"); if(ss)ss.remove();
+}
+let lastFocus=null;
+function openDrawer(id){ CUR=id; const d=T(),t=tid(id); ANS=false; SOLVE=false; lastFocus=document.activeElement;
  REC=[id,...REC.filter(x=>x!==id)].slice(0,12); lsSet("tb_rec",REC);
  document.getElementById("dTitle").textContent=LANG==="ar"?t.ar:t.en;
- document.getElementById("dMeta").innerHTML=`<span>${lbl("subject",t.subject)} · ${lbl("grade",t.grade)}</span><span>${t.q} ${d["meta.q"]}</span>${t.min?`<span>${t.min} ${d["meta.min"]}</span>`:""}${t.marks?`<span>${t.marks} ${d["meta.marks"]}</span>`:""}<span>${lbl("purpose",t.purpose)} · ${lbl("difficulty",t.difficulty)}</span>`;
+ document.getElementById("dMeta").innerHTML=`<span>${lbl("subject",t.subject)} · ${lbl("grade",t.grade)} · ${lbl("unit",t.unit)}</span><span>${t.q} ${d["meta.q"]}</span>${t.min?`<span>${t.min} ${d["meta.min"]}</span>`:""}${t.marks?`<span>${t.marks} ${d["meta.marks"]}</span>`:""}<span>${lbl("purpose",t.purpose)} · ${lbl("difficulty",t.difficulty)}</span>`;
  refreshDrawerFav();
  document.getElementById("dAssign").innerHTML=`${svg(IC.send)} ${d["btn.assign"]}`;
  document.getElementById("dPdf").innerHTML=`${svg(IC.pdf)} ${d["pv.pdf"]}`;
  renderDrawerBody();
  document.getElementById("drawer").classList.add("show"); document.body.style.overflow="hidden";
- render();
+ document.getElementById("dClose").focus(); render();
 }
-function renderDrawerBody(){ document.getElementById("dBody").innerHTML=drawerBody(); wireDrawer(); }
-function wireDrawer(){ const sb=document.getElementById("solveBtn"); if(sb) sb.addEventListener("click",()=>{ if(!SOLVE){ SOLVE=true; renderDrawerBody(); } else { gradeSolve(); } });
- document.querySelectorAll(".q-opt.pick").forEach(o=>o.addEventListener("click",()=>{ const qi=o.dataset.q; document.querySelectorAll(`.q-opt[data-q="${qi}"]`).forEach(x=>x.classList.remove("chosen")); o.classList.add("chosen"); })); }
-function gradeSolve(){ const d=T(),t=tid(CUR); let auto=0,correct=0;
- t.qs.forEach((qz,i)=>{ if(qz.t==="mcq"||qz.t==="tf"){ auto++; const chosen=document.querySelector(`.q-opt[data-q="${i}"].chosen`); const cc=(qz.t==="tf")?(qz.a?0:1):qz.ans; document.querySelectorAll(`.q-opt[data-q="${i}"]`).forEach(o=>{ const j=+o.dataset.opt; o.classList.remove("pick"); if(j===cc)o.classList.add("correct"); if(chosen&&+chosen.dataset.opt===j&&j!==cc)o.classList.add("wrong"); }); if(chosen&&+chosen.dataset.opt===cc)correct++; } });
- document.getElementById("solveRes").innerHTML=`<div class="solve-res">${svg(IC.check)} ${d["solve.res"].replace("{s}",correct).replace("{t}",auto)}</div>`;
- SOLVE=false; const sb=document.getElementById("solveBtn"); if(sb){ sb.classList.remove("on"); sb.innerHTML=`${svg(IC.play)} ${d["pv.solve"]}`; sb.addEventListener("click",()=>{ SOLVE=true; renderDrawerBody(); }); }
-}
-function closeAll(){ document.getElementById("drawer").classList.remove("show"); document.querySelectorAll(".modal").forEach(m=>m.classList.remove("show")); document.body.style.overflow=""; CUR=null; render(); }
-function openAssign(id){ CUR=id; const d=T(),t=tid(id); document.getElementById("asName").textContent=LANG==="ar"?t.ar:t.en; document.getElementById("asClass").innerHTML=CLASSES[LANG].map(c=>`<option>${c}</option>`).join(""); document.getElementById("asSend").innerHTML=`${svg(IC.send)} ${d["assign.send"]}`; document.getElementById("mAssign").classList.add("show"); document.body.style.overflow="hidden"; }
-let toastT; function toast(msg){ const el=document.getElementById("toast"); el.innerHTML=`${svg(IC.check)} ${msg}`; el.classList.add("show"); clearTimeout(toastT); toastT=setTimeout(()=>el.classList.remove("show"),3200); }
-function doAssign(){ const d=T(),t=tid(CUR); document.getElementById("mAssign").classList.remove("show"); document.body.style.overflow=""; toast(d["assign.done"].replace("{t}",LANG==="ar"?t.ar:t.en)); }
-function exportPdf(){ const d=T(),t=tid(CUR); const qs=t.qs.map((qz,i)=>{ let o=""; if(qz.t==="mcq") o=`<ol type="A" style="margin:6px 24px">${qz.opts.map(op=>`<li>${LANG==="ar"?op[0]:op[1]}</li>`).join("")}</ol>`; else if(qz.t==="tf") o=`<div style="margin:6px 24px">( ) ${d["tf.true"]}   ( ) ${d["tf.false"]}</div>`; else o=`<div style="border-bottom:1px solid #ccc;height:28px;margin:8px 0"></div>`; return `<div style="margin:0 0 16px"><b>${i+1}. ${LANG==="ar"?qz.ar:qz.en}</b>${o}</div>`; }).join("");
- document.getElementById("printArea").innerHTML=`<div style="font-family:'IBM Plex Sans Arabic',sans-serif" dir="${LANG==="ar"?"rtl":"ltr"}"><h2 style="margin:0 0 4px">${LANG==="ar"?t.ar:t.en}</h2><div style="color:#555;margin:0 0 18px;font-size:14px">${lbl("subject",t.subject)} · ${lbl("grade",t.grade)} · ${t.q} ${d["meta.q"]}${t.marks?` · ${t.marks} ${d["meta.marks"]}`:""}</div>${qs}</div>`;
+function anyOverlay(){ return document.getElementById("drawer").classList.contains("show")||document.querySelector(".modal.show"); }
+function closeAll(){ document.getElementById("drawer").classList.remove("show"); document.querySelectorAll(".modal").forEach(m=>m.classList.remove("show")); document.body.style.overflow=""; CUR=null; if(lastFocus&&lastFocus.focus){ try{lastFocus.focus();}catch(e){} } render(); }
+function openAssign(id){ CUR=id; const d=T(),t=tid(id); document.getElementById("asName").textContent=LANG==="ar"?t.ar:t.en; document.getElementById("asClass").innerHTML=CLASSES[LANG].map(c=>`<option>${c}</option>`).join(""); const due=document.getElementById("asDue"); due.min=new Date().toISOString().slice(0,10); document.getElementById("asSend").innerHTML=`${svg(IC.send)} ${d["assign.send"]}`; document.getElementById("mAssign").classList.add("show"); document.body.style.overflow="hidden"; }
+let toastT; function toast(msg,undo){ const el=document.getElementById("toast"); el.innerHTML=`${svg(IC.check)} <span>${msg}</span>${undo?`<button id="undoBtn">${undo}</button>`:""}`; el.classList.add("show"); clearTimeout(toastT); toastT=setTimeout(()=>el.classList.remove("show"),undo?5000:3200); const ub=document.getElementById("undoBtn"); if(ub)ub.addEventListener("click",()=>{ el.classList.remove("show"); toast(T()["assign.undone"]); }); }
+function doAssign(){ const d=T(),t=tid(CUR); document.getElementById("mAssign").classList.remove("show"); if(!document.getElementById("drawer").classList.contains("show")) document.body.style.overflow=""; toast(d["assign.done"].replace("{t}",LANG==="ar"?t.ar:t.en), d["assign.undo"]); }
+function exportPdf(){ const d=T(),t=tid(CUR); const per=t.marks?Math.max(1,Math.round(t.marks/t.qs.length)):0;
+ const qhtml=t.qs.map((qz,i)=>{ let o=""; if(qz.t==="mcq") o=`<ol type="A" style="margin:6px 24px;padding:0 18px">${qz.opts.map(op=>`<li style="margin:2px 0">${LANG==="ar"?op[0]:op[1]}</li>`).join("")}</ol>`; else if(qz.t==="tf") o=`<div style="margin:6px 24px">( ) ${d["tf.true"]}    ( ) ${d["tf.false"]}</div>`; else o=`<div style="border-bottom:1px solid #bbb;height:26px;margin:8px 0"></div>`; return `<div style="margin:0 0 15px"><div style="display:flex;justify-content:space-between"><b>${i+1}. ${LANG==="ar"?qz.ar:qz.en}</b>${per?`<span style="color:#666;font-size:12px">( ____ / ${per} )</span>`:""}</div>${o}</div>`; }).join("");
+ const key=t.qs.map((qz,i)=>{ let a; if(qz.t==="mcq")a=String.fromCharCode(65+qz.ans); else if(qz.t==="tf")a=qz.a?d["tf.true"]:d["tf.false"]; else a=d["pv.manual"]; return `<div style="margin:3px 0">${i+1}. ${a}</div>`; }).join("");
+ document.getElementById("printArea").innerHTML=`<div style="font-family:'IBM Plex Sans Arabic',sans-serif" dir="${LANG==="ar"?"rtl":"ltr"}"><div style="display:flex;justify-content:space-between;align-items:flex-start;border-bottom:2px solid #1E7BE8;padding-bottom:10px;margin-bottom:18px"><div><h2 style="margin:0">${LANG==="ar"?t.ar:t.en}</h2><div style="color:#555;font-size:13px;margin-top:4px">${lbl("subject",t.subject)} · ${lbl("grade",t.grade)} · ${t.q} ${d["meta.q"]}${t.marks?` · ${t.marks} ${d["meta.marks"]}`:""}</div></div><div style="text-align:end;font-size:13px;color:#333"><div style="font-weight:800;color:#1E7BE8">Schoobrary</div><div style="margin-top:6px">${d["pv.name"]}: ____________</div><div>${d["pv.date"]}: __________</div></div></div>${qhtml}<div style="page-break-before:always;margin-top:20px"><h3 style="border-bottom:1px solid #ccc;padding-bottom:6px">${d["pv.key"]}</h3>${key}</div></div>`;
  window.print();
 }
 document.getElementById("dAssign").addEventListener("click",()=>openAssign(CUR));
 document.getElementById("dPdf").addEventListener("click",exportPdf);
 document.getElementById("dFav").addEventListener("click",()=>toggleFav(CUR));
 document.getElementById("asSend").addEventListener("click",doAssign);
-document.getElementById("sortSel").addEventListener("change",e=>{ SORT=e.target.value; render(); });
+document.getElementById("sortSel").addEventListener("change",e=>{ SORT=e.target.value; PAGE=1; render(); });
 document.querySelectorAll("[data-close]").forEach(b=>b.addEventListener("click",closeAll));
-document.addEventListener("keydown",e=>{ if(e.key==="Escape") closeAll(); });
-document.getElementById("qBtn").addEventListener("click",()=>{ Q=(document.getElementById("q").value||"").trim().toLowerCase(); render(); });
-document.getElementById("q").addEventListener("keydown",e=>{ if(e.key==="Enter"){ Q=(e.target.value||"").trim().toLowerCase(); render(); } });
+document.addEventListener("keydown",e=>{ if(e.key==="Escape"){ if(anyOverlay())closeAll(); else if(document.getElementById("facets").classList.contains("open"))closeSheet(); } });
+document.getElementById("qBtn").addEventListener("click",()=>{ Q=(document.getElementById("q").value||"").trim().toLowerCase(); PAGE=1; render(); });
+document.getElementById("q").addEventListener("keydown",e=>{ if(e.key==="Enter"){ Q=(e.target.value||"").trim().toLowerCase(); PAGE=1; render(); } });
+function openSheet(){ document.getElementById("facets").classList.add("open"); document.getElementById("fBack").classList.add("show"); document.body.style.overflow="hidden"; }
+function closeSheet(){ document.getElementById("facets").classList.remove("open"); document.getElementById("fBack").classList.remove("show"); if(!anyOverlay())document.body.style.overflow=""; }
+document.getElementById("fToggle").addEventListener("click",openSheet);
+document.getElementById("fBack").addEventListener("click",closeSheet);
+function parseURL(){ const p=new URLSearchParams(location.search); FDEFS.forEach(D=>{ p.getAll(D.k).forEach(v=>{ if(D.opts.some(o=>o[0]===v)) F[D.k].add(v); }); }); if(p.get("q"))Q=p.get("q").toLowerCase(); if(p.get("tab"))TAB=p.get("tab"); if(p.get("sort"))SORT=p.get("sort"); }
+function syncURL(){ const p=new URLSearchParams(); FDEFS.forEach(D=>F[D.k].forEach(v=>p.append(D.k,v))); if(Q)p.set("q",Q); if(TAB!=="all")p.set("tab",TAB); if(SORT!=="newest")p.set("sort",SORT); const qs=p.toString(); history.replaceState(null,"",qs?("?"+qs):location.pathname); }
 function applyI18n(){ const d=T(); document.querySelectorAll("[data-i18n]").forEach(el=>{const k=el.getAttribute("data-i18n"); if(d[k]!=null)el.textContent=d[k];}); document.querySelectorAll("[data-i18n-ph]").forEach(el=>{const k=el.getAttribute("data-i18n-ph"); if(d[k]!=null)el.placeholder=d[k];}); }
-function setLang(l){ LANG=l; document.documentElement.lang=l; document.documentElement.dir=l==="ar"?"rtl":"ltr"; document.getElementById("langLabel").textContent=l==="ar"?"EN":"ع"; applyI18n(); if(document.getElementById("drawer").classList.contains("show")&&CUR){ const c=CUR; openDrawer(c); } render(); }
+function setLang(l){ LANG=l; document.documentElement.lang=l; document.documentElement.dir=l==="ar"?"rtl":"ltr"; document.getElementById("langLabel").textContent=l==="ar"?"EN":"ع"; applyI18n(); if(document.getElementById("drawer").classList.contains("show")&&CUR)openDrawer(CUR); render(); }
 document.getElementById("langToggle").addEventListener("click",()=>setLang(LANG==="ar"?"en":"ar"));
-applyI18n(); render();
+parseURL(); document.getElementById("q").value=Q; applyI18n(); render();
 </script>
 </body>
 </html>

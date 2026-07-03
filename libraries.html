@@ -373,7 +373,7 @@
       <button class="smode active" data-mode="general"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg><span data-i18n="mode.general">البحث العام</span></button>
       <button class="smode" data-mode="books"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 6.5 2z"/><line x1="10" y1="7" x2="16" y2="7"/></svg><span data-i18n="mode.books">مكتبة الكتب الرقمية</span></button>
       <button class="smode" data-mode="elements"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg><span data-i18n="mode.elements">مكتبة العناصر الرقمية</span></button>
-      <button class="smode" data-mode="tests"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg><span data-i18n="mode.tests">مكتبة الأختبارات</span></button>
+      <button class="smode" data-mode="tests"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg><span data-i18n="mode.tests">مكتبة الاختبارات</span></button>
     </div>
     <div class="area-wrap">
   <div class="subnav" id="subnav"></div>
@@ -474,7 +474,7 @@ const STATS = [ {n:"+500,000", ar:"كتاب رقمي", en:"Digital books"}, {n:"
 const I18N = {
   ar: {
     "hero.title":"ابحث في سكوبراري", "hero.sub":"كل موارد التعلّم — كتب، فيديوهات، أسئلة، وخطط دروس — في بحث واحد.", "hero.eyebrow":"المكتبة المدرسية الرقمية المتكاملة", "qb.title":"جرّب البحث عن", "modes.label":"اختر نوع البحث",
-    "mode.general":"البحث العام", "mode.books":"مكتبة الكتب الرقمية", "mode.elements":"مكتبة العناصر الرقمية", "mode.tests":"مكتبة الأختبارات", "mode.topic":"بحث بالموضوع", "mode.curriculum":"بحث بالمنهج", "mode.enrich":"المصادر الإثرائية", "sub.topic":"بحث بالموضوع", "sub.curriculum":"بحث بالمنهج", "sub.tcurr":"اختبارات بالمنهج", "sub.ttopic":"اختبارات بالموضوع", "subnav.elements":"اختر نوع البحث الفرعي", "subnav.tests":"اختر نوع الاختبارات",
+    "mode.general":"البحث العام", "mode.books":"مكتبة الكتب الرقمية", "mode.elements":"مكتبة العناصر الرقمية", "mode.tests":"مكتبة الاختبارات", "mode.topic":"بحث بالموضوع", "mode.curriculum":"بحث بالمنهج", "mode.enrich":"المصادر الإثرائية", "sub.topic":"بحث بالموضوع", "sub.curriculum":"بحث بالمنهج", "sub.tcurr":"اختبارات بالمنهج", "sub.ttopic":"اختبارات بالموضوع", "subnav.elements":"اختر نوع البحث الفرعي", "subnav.tests":"اختر نوع الاختبارات",
     "panel.topic.t":"البحث بالموضوع", "panel.topic.d":"حدّد الموضوع أو المادة للوصول إلى الموارد المرتبطة.",
     "panel.curriculum.t":"البحث بالمنهج", "panel.curriculum.d":"اختر الدولة والمنهج والصف للوصول إلى موارد المقرر.",
     "panel.tcurr.t":"الاختبارات بالمنهج", "panel.tcurr.d":"اختر الدولة والمنهج والصف لعرض الاختبارات المرتبطة.",
@@ -630,7 +630,7 @@ function renderStats() {
 
 /* ================= SEARCH STATE ================= */
 function doSearch() {
-  if (MODE === "tests") { window.location.href = "test-library.html"; return; }
+  if (MODE === "tests") { window.location.href = "test-library.html?subject=math&grade=g7&from=" + SUB; return; }
   renderResults();
   document.body.classList.add("searching");
   const ci = document.getElementById("cInput"); if (ci) ci.value = QUERY;
