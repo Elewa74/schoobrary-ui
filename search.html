@@ -287,7 +287,9 @@
     .modes-label { margin-top: 22px; }
     .cards-grid, .cards-grid.g3 { grid-template-columns: 1fr; }
     .lesson-list { grid-template-columns: 1fr; }
-    .gsearch { width: 100%; } .panel { width: 100%; }
+    .gsearch { width: 100%; } .panel { width: 100%; padding: 20px 16px; }
+    .area-wrap { padding: 0; margin-top: 24px; }
+    .panel-head h2 { font-size: 18px; } .panel-head p { font-size: 12px; }
     .fields, .rf-fields { grid-template-columns: 1fr; }
     .rf-body { flex-direction: column; align-items: stretch; } .rf-go { width: 100%; }
     .gsearch-bar { flex-direction: column; align-items: stretch; border-radius: var(--r-lg); padding: 10px; } .gs-btn { justify-content: center; }
@@ -635,5 +637,4 @@ document.querySelectorAll(".smode").forEach(m => m.addEventListener("click", () 
 document.getElementById("btnGo").addEventListener("click", doSearch);
 document.getElementById("btnClear").addEventListener("click", renderArea);
 document.getElementById("expandBtn").addEventListener("click", exitSearch);
-document.addEventListener("keydown", e => { if (e.key === "Enter" && document.getElementById("qInput") && !document.body.classList.contains("searching")) { QUERY = (document.getElementById("qInput").value||"").trim(); doSearch(); } });
-document.addEventListener("click", ev => { const b = ev.target.closest(".page-btn"); if (!b) return; const g = b.closest(".paginati
+document.addEventListener("keydown", e => { if (e.key === "Enter" && document.getElementById("qInput") && !document.body.classList.contains("searching")) { QUERY = (document.getElementById("qInput").value||"").trim(); doSea
