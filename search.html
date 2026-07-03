@@ -636,4 +636,11 @@ document.getElementById("btnGo").addEventListener("click", doSearch);
 document.getElementById("btnClear").addEventListener("click", renderArea);
 document.getElementById("expandBtn").addEventListener("click", exitSearch);
 document.addEventListener("keydown", e => { if (e.key === "Enter" && document.getElementById("qInput") && !document.body.classList.contains("searching")) { QUERY = (document.getElementById("qInput").value||"").trim(); doSearch(); } });
-document.addEventListener("click", ev => { const b = ev.target.closest(".page-btn"); if (!b) return; const g = b.closest(".paginati
+document.addEventListener("click", ev => { const b = ev.target.closest(".page-btn"); if (!b) return; const g = b.closest(".pagination"); if (!g) return; g.querySelectorAll(".page-btn").forEach(x => x.classList.remove("active")); b.classList.add("active"); });
+document.getElementById("langToggle").addEventListener("click", () => setLang(LANG==="ar" ? "en" : "ar"));
+
+/* init */
+renderArea(); renderCmodes();
+</script>
+</body>
+</html>
