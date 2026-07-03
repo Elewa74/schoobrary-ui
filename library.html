@@ -270,6 +270,9 @@
     .pagination { flex-wrap: wrap; }
     .foot-row { justify-content: center; text-align: center; }
   }
+
+  /* mobile/tablet overflow guard (clip is sticky-safe, unlike hidden) */
+  @media (max-width: 1024px) { html, body { overflow-x: clip; } }
 </style>
 </head>
 <body>

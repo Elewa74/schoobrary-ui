@@ -320,6 +320,12 @@
     .foot-row { justify-content: center; text-align: center; }
     /* mobile refinements */
   }
+
+  /* mobile/tablet overflow guard (clip is sticky-safe, unlike hidden) */
+  @media (max-width: 1024px) { html, body { overflow-x: clip; } }
+
+  /* bulletproof 2x2 mode selector on mobile */
+  @media (max-width: 640px) { .modes { display: grid; grid-template-columns: repeat(2, 1fr); align-items: stretch; } .smode { width: 100%; } .cmodes { width: 100%; justify-content: center; } .cbar-search { flex: 1 1 100%; min-width: 0; } }
 </style>
 </head>
 <body>
