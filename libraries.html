@@ -630,6 +630,7 @@ function renderStats() {
 
 /* ================= SEARCH STATE ================= */
 function doSearch() {
+  if (MODE === "tests") { window.location.href = "test-library.html"; return; }
   renderResults();
   document.body.classList.add("searching");
   const ci = document.getElementById("cInput"); if (ci) ci.value = QUERY;
