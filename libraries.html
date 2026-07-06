@@ -336,6 +336,11 @@
   .subicon:hover { border-color: var(--primary); color: var(--primary); }
   .subicon.active { background: var(--primary); border-color: var(--primary); color: #fff; box-shadow: var(--sh-md); }
   @media (max-width: 640px) { .subicons { width: 100%; } .subicon { flex: 1 1 44%; justify-content: center; padding: 12px 10px; font-size: 13.5px; } }
+  .sby { display:inline-flex; background:var(--bg-soft); border:1px solid var(--border); border-radius:999px; padding:4px; gap:2px; margin-bottom:16px; }
+  .sby-btn { display:inline-flex; align-items:center; gap:7px; padding:9px 18px; border:0; background:transparent; border-radius:999px; font-family:inherit; font-weight:800; font-size:13.5px; color:var(--muted); cursor:pointer; transition:all .18s; }
+  .sby-btn svg { width:15px; height:15px; }
+  .sby-btn.active { background:var(--primary); color:#fff; box-shadow:var(--sh-sm); }
+  @media (max-width:640px){ .sby{ width:100%; } .sby-btn{ flex:1; justify-content:center; } }
 </style>
 </head>
 <body>
@@ -462,9 +467,9 @@ const CURR_FILTERS = [ {lbl:"filter.lesson",v:null},{lbl:"filter.type",v:null},{
 const GEN_FILTERS = [ {lbl:"field.subject",v:null},{lbl:"filter.type",v:null},{lbl:"filter.license",v:null},{lbl:"filter.alignment",v:null},{lbl:"filter.usage",v:null} ];
 
 const ENRICH = [
-  {name_ar:"Ask Zad",name_en:"Ask Zad",initials:"Zad",logoImg:"",tag_ar:"مكتبة رقمية",tag_en:"Digital Library",desc_ar:"المكتبة العربية الرقمية الأولى والأكبر في العالم.",desc_en:"The world's first and largest Arabic digital library.",accent:"#1E7BE8",href:"https://www.askzad.com/AskZadCMS/Content/8"},
-  {name_ar:"دليل الكتاب العربي",name_en:"Arabic Book Guide",initials:"كتاب",logoImg:"",tag_ar:"دليل ومكتبة",tag_en:"Directory",desc_ar:"فهرس شامل للكتب العربية التعليمية والإثرائية.",desc_en:"A comprehensive index of Arabic educational books.",accent:"#2FA968",href:"#"},
-  {name_ar:"مكتبة الصحافة والتلفزيون",name_en:"Press & TV Library",initials:"صحافة",logoImg:"",tag_ar:"صحافة وإعلام",tag_en:"Press & Media",desc_ar:"أرشيف ومصادر من الصحافة والتلفزيون لإثراء المحتوى التعليمي.",desc_en:"Press and television archives and resources to enrich learning.",accent:"#F5A623",href:"#"}
+  {name_ar:"Ask Zad",name_en:"Ask Zad",initials:"Zad",logoImg:"",tag_ar:"مكتبة رقمية",tag_en:"Digital Library",desc_ar:"المكتبة العربية الرقمية الأولى والأكبر في العالم.",desc_en:"The world's first and largest Arabic digital library.",accent:"#1E7BE8",href:"https://enrichment.schoobrary.com/askzad"},
+  {name_ar:"دليل الكتاب العربي",name_en:"Arabic Book Guide",initials:"كتاب",logoImg:"",tag_ar:"دليل ومكتبة",tag_en:"Directory",desc_ar:"فهرس شامل للكتب العربية التعليمية والإثرائية.",desc_en:"A comprehensive index of Arabic educational books.",accent:"#2FA968",href:"https://enrichment.schoobrary.com/book-guide"},
+  {name_ar:"مكتبة الصحافة والتلفزيون",name_en:"Press & TV Library",initials:"صحافة",logoImg:"",tag_ar:"صحافة وإعلام",tag_en:"Press & Media",desc_ar:"أرشيف ومصادر من الصحافة والتلفزيون لإثراء المحتوى التعليمي.",desc_en:"Press and television archives and resources to enrich learning.",accent:"#F5A623",href:"https://enrichment.schoobrary.com/book-reviews"}
 ];
 
 const QUICK = [ {ar:"الرياضيات",en:"Mathematics"}, {ar:"العلوم",en:"Science"}, {ar:"اللغة العربية",en:"Arabic"}, {ar:"اللغة الإنجليزية",en:"English"}, {ar:"الدراسات الاجتماعية",en:"Social Studies"} ];
@@ -474,9 +479,12 @@ const STATS = [ {n:"+500,000", ar:"كتاب رقمي", en:"Digital books"}, {n:"
 const I18N = {
   ar: {
     "hero.title":"ابحث في سكوبراري", "hero.sub":"كل موارد التعلّم — كتب، فيديوهات، أسئلة، وخطط دروس — في بحث واحد.", "hero.eyebrow":"المكتبة المدرسية الرقمية المتكاملة", "qb.title":"جرّب البحث عن", "modes.label":"اختر نوع البحث",
-    "mode.general":"البحث العام", "mode.books":"مكتبة الكتب الرقمية", "mode.elements":"مكتبة العناصر الرقمية", "mode.tests":"مكتبة الاختبارات", "mode.topic":"بحث بالموضوع", "mode.curriculum":"بحث بالمنهج", "mode.enrich":"المصادر الإثرائية", "sub.topic":"بحث بالموضوع", "sub.curriculum":"بحث بالمنهج", "sub.tcurr":"اختبارات بالمنهج", "sub.ttopic":"اختبارات بالموضوع", "subnav.elements":"اختر نوع البحث الفرعي", "subnav.tests":"اختر نوع الاختبارات",
+    "mode.general":"البحث العام", "mode.books":"مكتبة الكتب الرقمية", "mode.elements":"مكتبة العناصر الرقمية", "mode.tests":"مكتبة الاختبارات", "mode.topic":"بحث بالموضوع", "mode.curriculum":"بحث بالمنهج", "mode.enrich":"المصادر الإثرائية", "sub.topic":"بحث بالموضوع", "sub.curriculum":"بحث بالمنهج", "sub.tcurr":"اختبارات بالمنهج", "sub.ttopic":"اختبارات بالموضوع", "sub.videos":"مكتبة الفيديوهات التعليمية", "sub.openvideos":"فيديوهات من مصادر مفتوحة", "sub.interactive":"عناصر تفاعلية وألعاب وخرائط ذهنية", "searchby.curriculum":"بالمنهج", "searchby.topic":"بالموضوع", "searchby.label":"طريقة البحث", "subnav.elements":"اختر المكتبة", "subnav.tests":"اختر نوع الاختبارات",
     "panel.topic.t":"البحث بالموضوع", "panel.topic.d":"حدّد الموضوع أو المادة للوصول إلى الموارد المرتبطة.",
     "panel.curriculum.t":"البحث بالمنهج", "panel.curriculum.d":"اختر الدولة والمنهج والصف للوصول إلى موارد المقرر.",
+    "panel.videos.t":"مكتبة الفيديوهات التعليمية", "panel.videos.d":"فيديوهات دروس منسّقة — ابحث بالمنهج أو بالموضوع.",
+    "panel.openvideos.t":"فيديوهات من مصادر مفتوحة", "panel.openvideos.d":"مقاطع من مصادر تعليمية مفتوحة — ابحث بالمنهج أو بالموضوع.",
+    "panel.interactive.t":"عناصر تفاعلية وألعاب وخرائط ذهنية", "panel.interactive.d":"أنشطة وألعاب وخرائط ذهنية تفاعلية — ابحث بالمنهج أو بالموضوع.",
     "panel.tcurr.t":"الاختبارات بالمنهج", "panel.tcurr.d":"اختر الدولة والمنهج والصف لعرض الاختبارات المرتبطة.",
     "panel.ttopic.t":"الاختبارات بالموضوع", "panel.ttopic.d":"حدّد الموضوع أو المادة لعرض الاختبارات المرتبطة.",
     "general.ph":"ابحث عن موضوع، مادة، درس، سؤال، كتاب أو نوع مورد…", "general.hint":"اضغط Enter أو «بحث» لعرض النتائج بالأسفل.",
@@ -498,9 +506,12 @@ const I18N = {
   },
   en: {
     "hero.title":"Search Schoobrary", "hero.sub":"All your learning resources — books, videos, questions, and lesson plans — in one search.", "hero.eyebrow":"The fully integrated digital school library", "qb.title":"Try searching for", "modes.label":"Choose a search type",
-    "mode.general":"General Search", "mode.books":"Digital Books Library", "mode.elements":"Digital Resources Library", "mode.tests":"Tests Library", "mode.topic":"By Topic", "mode.curriculum":"By Curriculum", "mode.enrich":"Enrichment", "sub.topic":"By Topic", "sub.curriculum":"By Curriculum", "sub.tcurr":"Tests by Curriculum", "sub.ttopic":"Tests by Topic", "subnav.elements":"Choose a sub-search", "subnav.tests":"Choose a test type",
+    "mode.general":"General Search", "mode.books":"Digital Books Library", "mode.elements":"Digital Resources Library", "mode.tests":"Tests Library", "mode.topic":"By Topic", "mode.curriculum":"By Curriculum", "mode.enrich":"Enrichment", "sub.topic":"By Topic", "sub.curriculum":"By Curriculum", "sub.tcurr":"Tests by Curriculum", "sub.ttopic":"Tests by Topic", "sub.videos":"Educational Videos", "sub.openvideos":"Open-source Videos", "sub.interactive":"Interactive, Games & Mind Maps", "searchby.curriculum":"By Curriculum", "searchby.topic":"By Topic", "searchby.label":"Search by", "subnav.elements":"Choose a library", "subnav.tests":"Choose a test type",
     "panel.topic.t":"Search by Topic", "panel.topic.d":"Choose the topic or subject to reach related resources.",
     "panel.curriculum.t":"Search by Curriculum", "panel.curriculum.d":"Pick country, curriculum and grade to reach course resources.",
+    "panel.videos.t":"Educational Videos Library", "panel.videos.d":"Curated lesson videos — search by curriculum or topic.",
+    "panel.openvideos.t":"Open-source Videos", "panel.openvideos.d":"Clips from open educational sources — search by curriculum or topic.",
+    "panel.interactive.t":"Interactive, Games & Mind Maps", "panel.interactive.d":"Interactive activities, games and mind maps — search by curriculum or topic.",
     "panel.tcurr.t":"Tests by Curriculum", "panel.tcurr.d":"Pick country, curriculum and grade to view related tests.",
     "panel.ttopic.t":"Tests by Topic", "panel.ttopic.d":"Choose the topic or subject to view related tests.",
     "general.ph":"Search a topic, subject, lesson, question, book or resource type…", "general.hint":"Press Enter or “Search” to show results below.",
@@ -532,6 +543,9 @@ const MODE_ICON = {
   general:'<circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>',
   books:'<path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 6.5 2z"/><line x1="10" y1="7" x2="16" y2="7"/>',
   elements:'<rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/>',
+  videos:'<rect x="2" y="4" width="20" height="14" rx="2.5"/><polygon points="10 8 15 11 10 14 10 8"/>',
+  openvideos:'<circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>',
+  interactive:'<rect x="2" y="6" width="20" height="12" rx="3"/><line x1="7" y1="12" x2="11" y2="12"/><line x1="9" y1="10" x2="9" y2="14"/><circle cx="16" cy="11" r="1"/><circle cx="18.5" cy="13.5" r="1"/>',
   tests:'<path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/>',
   topic:'<path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>',
   curriculum:'<path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 4 19.5z"/>',
@@ -539,8 +553,9 @@ const MODE_ICON = {
   ttopic:'<path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>',
   enrich:'<polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>'
 };
-const SUBS = { elements:["topic","curriculum"], tests:["tcurr","ttopic"] };
-let SUB = "topic";
+const SUBS = { elements:["videos","openvideos","interactive"], tests:["tcurr","ttopic"] };
+let SUB = "videos";
+let SEARCHBY = "curriculum";
 function decoSvg(a){ const l=a+"22"; return `<svg viewBox="0 0 300 160" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg"><rect width="300" height="160" fill="${a}10"/><circle cx="250" cy="22" r="44" fill="${l}"/><circle cx="40" cy="140" r="28" fill="${l}"/><line x1="202" y1="30" x2="224" y2="8" stroke="${a}" stroke-width="1.5" opacity="0.16"/></svg>`; }
 function fieldsHtml(kind){ const d=T(); return `<div class="fields">${FIELDS[kind].map(f=>{const val=f.v?L(f.v):"";return `<div class="f-field"><label>${d[f.lbl]}</label><div class="f-box ${val?"":"empty"}"><span>${val||d["field.choose"]}</span>${CHEV}</div></div>`;}).join("")}</div>`; }
 function filtersHtml(list){ const d=T(); return list.map(f=>{const val=f.v?L(f.v):"";return `<div class="fgroup"><div class="flabel">${d[f.lbl]}</div><select class="fselect ${val?"set":""}"><option>${val||d[f.lbl]}</option></select></div>`;}).join(""); }
@@ -595,11 +610,11 @@ function renderResults() {
   let content = "";
   if (MODE === "general") content = generalResults();
   else if (MODE === "books") content = enrichResults();
-  else if (MODE === "elements") content = (SUB === "topic") ? topicResults() : curriculumResults();
+  else if (MODE === "elements") content = (SEARCHBY === "topic") ? topicResults() : curriculumResults();
   else if (MODE === "tests") content = testsResults(SUB);
   let top = "";
   if (MODE === "general") top = resultsSearchHtml();
-  else if (MODE === "elements" || MODE === "tests") top = resultsFilterHtml(SUB);
+  else if (MODE === "elements") top = resultsFilterHtml(SEARCHBY); else if (MODE === "tests") top = resultsFilterHtml(SUB);
   el.innerHTML = top + content;
   const cInput = document.getElementById("cInput"), cGo = document.getElementById("cGo");
   if (cInput) { cInput.value = QUERY; cInput.addEventListener("keydown", e => { if (e.key === "Enter") { QUERY = (cInput.value||"").trim(); doSearch(); } }); }
@@ -664,7 +679,13 @@ function renderArea() {
     document.getElementById("panelIcon").innerHTML = svgI(MODE_ICON[SUB], "currentColor", 2);
     document.getElementById("panelTitle").textContent = d["panel."+SUB+".t"];
     document.getElementById("panelDesc").textContent = d["panel."+SUB+".d"];
-    document.getElementById("panelBody").innerHTML = fieldsHtml(SUB);
+    if (MODE === "elements") {
+      const pb = document.getElementById("panelBody");
+      pb.innerHTML = `<div class="sby">` + ["curriculum","topic"].map(sk => `<button class="sby-btn ${sk===SEARCHBY?"active":""}" data-sby="${sk}">${svgI(MODE_ICON[sk],"currentColor",2)} ${d["searchby."+sk]}</button>`).join("") + `</div>` + fieldsHtml(SEARCHBY);
+      pb.querySelectorAll(".sby-btn").forEach(b => b.addEventListener("click", () => { SEARCHBY = b.dataset.sby; renderArea(); }));
+    } else {
+      document.getElementById("panelBody").innerHTML = fieldsHtml(SUB);
+    }
   }
 }
 
