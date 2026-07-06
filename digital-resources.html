@@ -494,6 +494,7 @@
       <div><h1 data-i18n="res.title">مكتبة العناصر الرقمية</h1><p data-i18n="res.sub">فيديوهات، إنفوجراف، عناصر تفاعلية وخطط دروس — فلتر بالمنهج أو بالموضوع، عاين، وأسنِد أو أضف لخطة الدرس.</p></div>
     </div>
     <div class="tb-search"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg><input type="text" id="q" aria-label="ابحث في الموارد" data-i18n-ph="search.ph" placeholder="ابحث باسم المورد أو المادة…" /><button id="qBtn" data-i18n="search.btn">بحث</button></div>
+    <div class="dr-sby" id="sby"></div>
     <div class="tb-layout">
       <aside class="facets" id="facets" aria-label="فلاتر"></aside>
       <div>
@@ -530,7 +531,7 @@
 
 <script>
 const I18N={
- ar:{ "crumb.home":"الرئيسية","crumb.res":"مكتبة العناصر الرقمية","res.title":"مكتبة العناصر الرقمية","res.sub":"فيديوهات، إنفوجراف، عناصر تفاعلية وخطط دروس — فلتر بالمادة والمنهج والموضوع، عاين، وأسنِد أو أضف لخطة الدرس.",
+ ar:{ "crumb.home":"الرئيسية","crumb.res":"مكتبة العناصر الرقمية","res.title":"مكتبة العناصر الرقمية","res.sub":"فيديوهات، إنفوجراف، عناصر تفاعلية وخطط دروس — فلتر بالمنهج أو بالموضوع، عاين، وأسنِد أو أضف لخطة الدرس.",
   "search.ph":"ابحث باسم المورد أو المادة…","search.btn":"بحث","filters":"الفلاتر","clear":"مسح الكل","tab.all":"الكل","tab.fav":"المفضّلة","tab.recent":"مؤخرًا",
   "sby.curriculum":"بالمنهج","sby.topic":"بالموضوع",
   "sort.by":"ترتيب:","sort.newest":"الأحدث","sort.popular":"الأكثر استخدامًا","sort.diff":"حسب النوع",
@@ -543,7 +544,7 @@ const I18N={
   "assign.title":"إسناد المورد للطلاب","assign.class":"الفصل / الشعبة","assign.due":"تاريخ الإتاحة","assign.note":"ملاحظة (اختياري)","assign.notePh":"مثال: شاهدوا الفيديو قبل الحصة","assign.send":"إرسال للطلاب",
   "done.open":"جارٍ فتح «{t}»…","done.assign":"تم إسناد «{t}» لطلابك","done.plan":"تمت إضافة «{t}» إلى خطة الدرس","undo":"تراجع","undone":"تم التراجع",
   "foot.tagline":"مكتبة الغد لتعليم اليوم.","pl.1":"مورد","pl.2":"موردان","pl.f":"موارد","pl.m":"موردًا" },
- en:{ "crumb.home":"Home","crumb.res":"Digital Resources","res.title":"Digital Resources Library","res.sub":"Videos, infographics, interactive elements and lesson plans — filter by subject, curriculum and topic, preview, then assign or add to a lesson plan.",
+ en:{ "crumb.home":"Home","crumb.res":"Digital Resources","res.title":"Digital Resources Library","res.sub":"Videos, infographics, interactive elements and lesson plans — filter by curriculum or topic, preview, then assign or add to a lesson plan.",
   "search.ph":"Search by resource or subject…","search.btn":"Search","filters":"Filters","clear":"Clear all","tab.all":"All","tab.fav":"Favorites","tab.recent":"Recent",
   "sby.curriculum":"By Curriculum","sby.topic":"By Topic",
   "sort.by":"Sort:","sort.newest":"Newest","sort.popular":"Most used","sort.diff":"By type",
@@ -557,7 +558,7 @@ const I18N={
   "done.open":"Opening \"{t}\"…","done.assign":"\"{t}\" assigned to your students","done.plan":"\"{t}\" added to lesson plan","undo":"Undo","undone":"Undone",
   "foot.tagline":"Tomorrow's library for today's learning.","pl.1":"resource","pl.2":"resources","pl.f":"resources","pl.m":"resources" }
 };
-let LANG="ar", Q="", TAB="all", SORT="newest", CUR=null, PAGE=1; const SIZE=8;
+let LANG="ar", Q="", TAB="all", SORT="newest", SBY="curriculum", CUR=null, PAGE=1; const SIZE=8;
 const T=()=>I18N[LANG];
 function plural(n){ const d=T(); if(LANG==="en") return n===1?d["pl.1"]:d["pl.2"]; if(n===1)return d["pl.1"]; if(n===2)return d["pl.2"]; if(n>=3&&n<=10)return d["pl.f"]; return d["pl.m"]; }
 const svg=(i,w)=>`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="${w||2}" stroke-linecap="round" stroke-linejoin="round">${i}</svg>`;
@@ -574,7 +575,7 @@ const FDEFS=[
 ];
 function fdef(k){ return FDEFS.find(x=>x.k===k); }
 function lbl(dim,key){ if(dim==="type") return T()["t."+key]; const D=fdef(dim); const o=D&&D.opts.find(x=>x[0]===key); return o?(LANG==="ar"?o[1]:o[2]):key; }
-function facetKeys(){ return ["type","subject","grade","curriculum","unit","topic"]; }
+function facetKeys(){ return SBY==="curriculum" ? ["type","curriculum","grade","subject","unit"] : ["type","subject","topic"]; }
 const CLASSES={ar:["الأول المتوسط - أ","الأول المتوسط - ب","الثاني المتوسط - أ","الثاني المتوسط - ب","الثالث المتوسط - أ"],en:["Grade 7 - A","Grade 7 - B","Grade 8 - A","Grade 8 - B","Grade 9 - A"]};
 const RES=[
  {id:"r1",ar:"شرح: الجبر والمعادلات",en:"Lesson: Algebra & Equations",type:"videos",subject:"math",grade:"g7",curriculum:"moe",unit:"u1",topic:"algebra",dur:12,uses:230,date:"2026-06-24",dar:"فيديو شرح مبسّط لمفهوم المتغيّر وحل المعادلات من الدرجة الأولى.",den:"A simple explainer of variables and solving first-degree equations."},
@@ -593,6 +594,7 @@ let FAV=lsGet("dr_fav"), REC=lsGet("dr_rec");
 let F={}; FDEFS.forEach(D=>F[D.k]=new Set());
 function passFilters(t,skip){ for(const k of facetKeys()){ if(k===skip)continue; const s=F[k]; if(s.size && !s.has(t[k])) return false; } if(Q){ const s=(t.ar+" "+t.en+" "+lbl("subject",t.subject)).toLowerCase(); if(!s.includes(Q))return false; } return true; }
 function baseList(){ let L=RES.filter(t=>passFilters(t)); if(TAB==="fav")L=L.filter(t=>FAV.includes(t.id)); if(TAB==="recent"){ const idx={}; REC.forEach((id,i)=>idx[id]=i); L=L.filter(t=>REC.includes(t.id)).sort((a,b)=>idx[a.id]-idx[b.id]); return L; } if(SORT==="popular")L=[...L].sort((a,b)=>b.uses-a.uses); else if(SORT==="diff")L=[...L].sort((a,b)=>a.type.localeCompare(b.type)); else L=[...L].sort((a,b)=>b.date.localeCompare(a.date)); return L; }
+function sbyHtml(){ const d=T(); return ["curriculum","topic"].map(k=>`<button class="${SBY===k?"active":""}" data-sby="${k}">${svg(k==="curriculum"?IC.grid:IC.search)} ${d["sby."+k]}</button>`).join(""); }
 function facetsHtml(){ const d=T(); const keys=facetKeys(); const anyF=keys.some(k=>F[k].size)||Q; return `<div class="facets-h"><span>${svg(IC.filter)} ${d["filters"]}</span>${anyF?`<button id="clrAll">${d["clear"]}</button>`:""}</div>`+keys.map(k=>{const D=fdef(k); return `<div class="facet"><div class="facet-h">${d["f."+k]}</div>${D.opts.map(o=>{const c=RES.filter(t=>passFilters(t,k)&&t[k]===o[0]).length; const on=F[k].has(o[0]); return `<label class="facet-opt ${c===0&&!on?"off":""}"><input type="checkbox" data-dim="${k}" data-val="${o[0]}" ${on?"checked":""}><span>${lbl(k,o[0])}</span><span class="cnt">${c}</span></label>`;}).join("")}</div>`;}).join(""); }
 function tabsHtml(){ const d=T(); return [["all","grid"],["fav","star"],["recent","clock2"]].map(([k,ic])=>`<button class="tb-tab ${TAB===k?"active":""}" data-tab="${k}">${svg(IC[ic])} ${d["tab."+k]}</button>`).join(""); }
 function chipsHtml(){ let out=[]; if(Q)out.push(`<span class="chip">${svg(IC.search,2)} "${Q}" <button data-clearq>×</button></span>`); facetKeys().forEach(k=>F[k].forEach(v=>out.push(`<span class="chip">${lbl(k,v)} <button data-dim="${k}" data-val="${v}">×</button></span>`))); return out.join(""); }
@@ -601,6 +603,7 @@ function metaOf(t){ const d=T(); if(t.dur)return t.dur+" "+d["meta.min"]; if(t.p
 function rowHtml(t){ const d=T(),c=TYPEC[t.type]; return `<div class="trow ${CUR===t.id?"sel":""}" data-id="${t.id}" role="button" tabindex="0" aria-label="${LANG==="ar"?t.ar:t.en}"><button class="tr-fav ${FAV.includes(t.id)?"on":""}" data-fav="${t.id}" aria-label="مفضلة">${svg(IC.star,FAV.includes(t.id)?0:2)}</button><div class="tr-main"><div class="tr-title">${LANG==="ar"?t.ar:t.en}</div><div class="tr-sub"><span>${lbl("subject",t.subject)}</span><span>·</span><span>${lbl("grade",t.grade)}</span><span>·</span><span>${lbl("unit",t.unit)}</span></div><div class="tr-tags"><span class="tr-tag" style="background:${c}1a;color:${c}">${svg(IC[t.type],2)} ${d["t."+t.type]}</span><span class="tr-tag" style="background:#7A5AF814;color:#7A5AF8">${lbl("topic",t.topic)}</span></div></div><div class="tr-meta"><div>${svg(IC.clock)} ${metaOf(t)}</div><div>${svg(IC.flame)} ${t.uses} ${d["uses"]}</div></div><div class="tr-act"><button class="tr-btn tr-preview" data-prev="${t.id}">${svg(IC.search)} ${d["btn.preview"]}</button><button class="tr-btn tr-assign" data-open="${t.id}">${svg(IC.open)} ${d["btn.open"]}</button></div></div>`; }
 function pagerHtml(pages){ if(pages<=1)return ""; let b=`<button class="page-btn" data-pg="${PAGE-1}" ${PAGE===1?"disabled":""}>‹</button>`; for(let i=1;i<=pages;i++)b+=`<button class="page-btn ${i===PAGE?"active":""}" data-pg="${i}">${i}</button>`; b+=`<button class="page-btn" data-pg="${PAGE+1}" ${PAGE===pages?"disabled":""}>›</button>`; return `<div class="pagination" style="margin-top:18px">${b}</div>`; }
 function render(){ const d=T();
+ document.getElementById("sby").innerHTML=sbyHtml();
  document.getElementById("facets").innerHTML=facetsHtml();
  document.getElementById("tabs").innerHTML=tabsHtml();
  document.getElementById("chips").innerHTML=chipsHtml();
@@ -614,6 +617,7 @@ function render(){ const d=T();
  syncURL(); wire();
 }
 function wire(){
+ document.querySelectorAll('.dr-sby button').forEach(b=>b.addEventListener("click",()=>{ if(SBY===b.dataset.sby)return; SBY=b.dataset.sby; FDEFS.forEach(D=>{ if(!facetKeys().includes(D.k))F[D.k].clear(); }); PAGE=1; render(); }));
  document.querySelectorAll('.facet-opt input').forEach(c=>c.addEventListener("change",()=>{ const s=F[c.dataset.dim]; c.checked?s.add(c.dataset.val):s.delete(c.dataset.val); PAGE=1; render(); }));
  const ca=document.getElementById("clrAll"); if(ca)ca.addEventListener("click",clearAll);
  const ec=document.getElementById("emptyClear"); if(ec)ec.addEventListener("click",clearAll);
@@ -668,8 +672,8 @@ function openSheet(){ document.getElementById("facets").classList.add("open"); d
 function closeSheet(){ document.getElementById("facets").classList.remove("open"); document.getElementById("fBack").classList.remove("show"); if(!anyOverlay())document.body.style.overflow=""; }
 document.getElementById("fToggle").addEventListener("click",openSheet);
 document.getElementById("fBack").addEventListener("click",closeSheet);
-function parseURL(){ const p=new URLSearchParams(location.search); if(p.get("type")&&fdef("type").opts.some(o=>o[0]===p.get("type")))F["type"].add(p.get("type")); ["subject","grade","curriculum","unit","topic"].forEach(k=>{ p.getAll(k).forEach(v=>{ if(fdef(k).opts.some(o=>o[0]===v))F[k].add(v); }); }); if(p.get("q"))Q=p.get("q").toLowerCase(); if(p.get("tab"))TAB=p.get("tab"); if(p.get("sort"))SORT=p.get("sort"); }
-function syncURL(){ const p=new URLSearchParams(); facetKeys().forEach(k=>F[k].forEach(v=>p.append(k,v))); if(Q)p.set("q",Q); if(TAB!=="all")p.set("tab",TAB); if(SORT!=="newest")p.set("sort",SORT); const qs=p.toString(); history.replaceState(null,"",qs?("?"+qs):location.pathname); }
+function parseURL(){ const p=new URLSearchParams(location.search); if(p.get("sby")==="topic"||p.get("sby")==="curriculum")SBY=p.get("sby"); if(p.get("type")&&fdef("type").opts.some(o=>o[0]===p.get("type")))F["type"].add(p.get("type")); ["subject","grade","curriculum","unit","topic"].forEach(k=>{ p.getAll(k).forEach(v=>{ if(fdef(k).opts.some(o=>o[0]===v))F[k].add(v); }); }); if(p.get("q"))Q=p.get("q").toLowerCase(); if(p.get("tab"))TAB=p.get("tab"); if(p.get("sort"))SORT=p.get("sort"); }
+function syncURL(){ const p=new URLSearchParams(); if(SBY!=="curriculum")p.set("sby",SBY); facetKeys().forEach(k=>F[k].forEach(v=>p.append(k,v))); if(Q)p.set("q",Q); if(TAB!=="all")p.set("tab",TAB); if(SORT!=="newest")p.set("sort",SORT); const qs=p.toString(); history.replaceState(null,"",qs?("?"+qs):location.pathname); }
 function applyI18n(){ const d=T(); document.querySelectorAll("[data-i18n]").forEach(el=>{const k=el.getAttribute("data-i18n"); if(d[k]!=null)el.textContent=d[k];}); document.querySelectorAll("[data-i18n-ph]").forEach(el=>{const k=el.getAttribute("data-i18n-ph"); if(d[k]!=null)el.placeholder=d[k];}); }
 function setLang(l){ LANG=l; document.documentElement.lang=l; document.documentElement.dir=l==="ar"?"rtl":"ltr"; document.getElementById("langLabel").textContent=l==="ar"?"EN":"ع"; applyI18n(); if(document.getElementById("drawer").classList.contains("show")&&CUR)openDrawer(CUR); render(); }
 document.getElementById("langToggle").addEventListener("click",()=>setLang(LANG==="ar"?"en":"ar"));
