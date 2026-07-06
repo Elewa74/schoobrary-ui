@@ -652,7 +652,6 @@ function renderStats() {
 /* ================= SEARCH STATE ================= */
 function doSearch() {
   if (MODE === "tests") { window.location.href = "test-library.html?subject=math&grade=g7&from=" + SUB; return; }
-  if (MODE === "elements") { window.location.href = "digital-resources.html?type=" + SUB + "&sby=" + SEARCHBY + "&subject=math&grade=g7"; return; }
   renderResults();
   document.body.classList.add("searching");
   const ci = document.getElementById("cInput"); if (ci) ci.value = QUERY;
@@ -688,8 +687,8 @@ function renderArea() {
     document.getElementById("panelDesc").textContent = d["panel."+SUB+".d"];
     if (MODE === "elements") {
       const pb = document.getElementById("panelBody");
-      pb.innerHTML = `<span class="subnav-label" style="display:block;margin-bottom:10px">${d["searchby.label"]}</span><div class="subicons" style="margin-bottom:18px">` + ["curriculum","topic"].map(sk => `<button class="subicon ${sk===SEARCHBY?"active":""}" data-sby="${sk}">${svgI(MODE_ICON[sk],"currentColor",2)} ${d["searchby."+sk]}</button>`).join("") + `</div>` + fieldsHtml(SEARCHBY);
-      pb.querySelectorAll(".subicon[data-sby]").forEach(b => b.addEventListener("click", () => { SEARCHBY = b.dataset.sby; renderArea(); }));
+      pb.innerHTML = `<div class="sby">` + ["curriculum","topic"].map(sk => `<button class="sby-btn ${sk===SEARCHBY?"active":""}" data-sby="${sk}">${svgI(MODE_ICON[sk],"currentColor",2)} ${d["searchby."+sk]}</button>`).join("") + `</div>` + fieldsHtml(SEARCHBY);
+      pb.querySelectorAll(".sby-btn").forEach(b => b.addEventListener("click", () => { SEARCHBY = b.dataset.sby; renderArea(); }));
     } else {
       document.getElementById("panelBody").innerHTML = fieldsHtml(SUB);
     }
