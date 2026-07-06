@@ -652,6 +652,7 @@ function renderStats() {
 /* ================= SEARCH STATE ================= */
 function doSearch() {
   if (MODE === "tests") { window.location.href = "test-library.html?subject=math&grade=g7&from=" + SUB; return; }
+  if (MODE === "elements") { window.location.href = "digital-resources.html?type=" + SUB + "&sby=" + SEARCHBY + "&subject=math&grade=g7"; return; }
   renderResults();
   document.body.classList.add("searching");
   const ci = document.getElementById("cInput"); if (ci) ci.value = QUERY;
