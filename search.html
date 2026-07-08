@@ -349,6 +349,11 @@
   .home-btn svg { width:16px; height:16px; }
   /* hide the search selection/filter box inside results (keep search only on main page) */
   .res-search-wrap, .res-filter-wrap { display: none; }
+  /* results view: hide collapsed bar; use a Back button inside results header */
+  body.searching .cbar { display: none; }
+  .res-back { display:inline-flex; align-items:center; gap:8px; height:40px; padding:0 18px; border-radius:var(--r-pill); border:1.5px solid var(--border-strong); background:var(--surface); color:var(--text); font-weight:800; font-size:13.5px; cursor:pointer; transition:all .2s; }
+  .res-back:hover { border-color:var(--primary); color:var(--primary); }
+  .res-back svg { width:16px; height:16px; }
 </style>
 </head>
 <body>
@@ -479,7 +484,10 @@ const GEN_FILTERS = [ {lbl:"field.subject",v:null},{lbl:"filter.type",v:null},{l
 const ENRICH = [
   {name_ar:"Ask Zad",name_en:"Ask Zad",initials:"Zad",logoImg:"",tag_ar:"مكتبة رقمية",tag_en:"Digital Library",desc_ar:"المكتبة العربية الرقمية الأولى والأكبر في العالم.",desc_en:"The world's first and largest Arabic digital library.",accent:"#1E7BE8",href:"https://enrichment.schoobrary.com/askzad"},
   {name_ar:"دليل الكتاب العربي",name_en:"Arabic Book Guide",initials:"كتاب",logoImg:"",tag_ar:"دليل ومكتبة",tag_en:"Directory",desc_ar:"فهرس شامل للكتب العربية التعليمية والإثرائية.",desc_en:"A comprehensive index of Arabic educational books.",accent:"#2FA968",href:"https://enrichment.schoobrary.com/book-guide"},
-  {name_ar:"مكتبة الصحافة والتلفزيون",name_en:"Press & TV Library",initials:"صحافة",logoImg:"",tag_ar:"صحافة وإعلام",tag_en:"Press & Media",desc_ar:"أرشيف ومصادر من الصحافة والتلفزيون لإثراء المحتوى التعليمي.",desc_en:"Press and television archives and resources to enrich learning.",accent:"#F5A623",href:"https://enrichment.schoobrary.com/book-reviews"}
+  {name_ar:"مكتبة الصحافة والتلفزيون",name_en:"Press & TV Library",initials:"صحافة",logoImg:"",tag_ar:"صحافة وإعلام",tag_en:"Press & Media",desc_ar:"أرشيف ومصادر من الصحافة والتلفزيون لإثراء المحتوى التعليمي.",desc_en:"Press and television archives and resources to enrich learning.",accent:"#F5A623",href:"https://enrichment.schoobrary.com/book-reviews"},
+  {name_ar:"العربية للحياة",name_en:"Arabic for Life",initials:"عربية",logoImg:"",tag_ar:"لغة عربية",tag_en:"Arabic Language",desc_ar:"برنامج متكامل لتعليم اللغة العربية للناطقين وغير الناطقين بها.",desc_en:"A complete program for teaching Arabic to native and non-native speakers.",accent:"#7A5AF8",href:"#"},
+  {name_ar:"Kalemon K12",name_en:"Kalemon K12",initials:"K12",logoImg:"",tag_ar:"منصة تعليمية",tag_en:"Learning Platform",desc_ar:"منصة تعلّم رقمية لمراحل التعليم العام (الروضة حتى الثانوي).",desc_en:"A digital learning platform for K–12 education.",accent:"#0EA5E9",href:"#"},
+  {name_ar:"Kalemon Adults",name_en:"Kalemon Adults",initials:"Kal",logoImg:"",tag_ar:"تعليم الكبار",tag_en:"Adult Learning",desc_ar:"مسارات تعلّم مرنة موجّهة للكبار والتعليم المستمر.",desc_en:"Flexible learning paths for adults and lifelong learning.",accent:"#14B8A6",href:"#"}
 ];
 
 const QUICK = [ {ar:"الرياضيات",en:"Mathematics"}, {ar:"العلوم",en:"Science"}, {ar:"اللغة العربية",en:"Arabic"}, {ar:"اللغة الإنجليزية",en:"English"}, {ar:"الدراسات الاجتماعية",en:"Social Studies"} ];
@@ -499,7 +507,7 @@ const I18N = {
     "field.choose":"اختر…", "field.country":"الدولة", "field.curriculum":"المنهج", "field.grade":"الصف الدراسي", "field.subject":"المادة",
     "field.mainTopic":"الموضوع الرئيسي", "field.domain":"المجال", "field.axis":"المحور", "field.subtopic":"الموضوع الفرعي",
     "search.btn":"بحث", "btn.reset":"إعادة تعيين", "search.hint":"اضغط «بحث» لعرض النتائج بالأسفل.",
-    "edit.search":"تعديل البحث", "home.back":"الرئيسية", "back.short":"رجوع", "cbar.searchPh":"ابحث عن موضوع آخر…",
+    "edit.search":"تعديل البحث", "home.back":"الرئيسية", "res.back":"العودة", "back.short":"رجوع", "cbar.searchPh":"ابحث عن موضوع آخر…",
     "enrich.enter":"دخول المكتبة",
     "results.count":"عدد نتائج البحث", "results.word":"نتيجة", "results.for":"نتيجة عن",
     "tab.elements":"عناصر تعليمية", "tab.plans":"خطط دروس", "content.type":"نوع المحتوى",
@@ -524,7 +532,7 @@ const I18N = {
     "field.choose":"Choose…", "field.country":"Country", "field.curriculum":"Curriculum", "field.grade":"Grade", "field.subject":"Subject",
     "field.mainTopic":"Main Topic", "field.domain":"Domain", "field.axis":"Strand", "field.subtopic":"Sub-topic",
     "search.btn":"Search", "btn.reset":"Reset", "search.hint":"Click “Search” to show results below.",
-    "edit.search":"Edit search", "home.back":"Home", "back.short":"Back", "cbar.searchPh":"Search another topic…",
+    "edit.search":"Edit search", "home.back":"Home", "res.back":"Back", "back.short":"Back", "cbar.searchPh":"Search another topic…",
     "enrich.enter":"Enter Library",
     "results.count":"Search results", "results.word":"results", "results.for":"results for",
     "tab.elements":"Learning Resources", "tab.plans":"Lesson Plans", "content.type":"Content Type",
@@ -621,6 +629,8 @@ function renderResults() {
   if (MODE === "general") top = resultsSearchHtml();
   else if (MODE === "elements") top = resultsFilterHtml(SUB); else if (MODE === "tests") top = resultsFilterHtml(SUB);
   el.innerHTML = top + content;
+  const rtBar = el.querySelector(".res-topbar");
+  if (rtBar) { const bk = document.createElement("button"); bk.className = "res-back"; bk.type = "button"; bk.innerHTML = `${svgI('<path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/>',"currentColor",2.2)} ${T()["res.back"]}`; bk.addEventListener("click", exitSearch); rtBar.appendChild(bk); }
   const cInput = document.getElementById("cInput"), cGo = document.getElementById("cGo");
   if (cInput) { cInput.value = QUERY; cInput.addEventListener("keydown", e => { if (e.key === "Enter") { QUERY = (cInput.value||"").trim(); doSearch(); } }); }
   if (cGo) cGo.addEventListener("click", () => { QUERY = (cInput.value||"").trim(); doSearch(); });
