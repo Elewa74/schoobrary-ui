@@ -460,6 +460,7 @@ const PLANS = [
 const FIELDS = {
   topic: [ {lbl:"field.mainTopic",v:{ar:"الجبر",en:"Algebra"}}, {lbl:"field.domain",v:null}, {lbl:"field.axis",v:null}, {lbl:"field.subtopic",v:null} ],
   curriculum: [ {lbl:"field.country",v:{ar:"السعودية",en:"Saudi Arabia"}}, {lbl:"field.curriculum",v:{ar:"وزارة التعليم",en:"Ministry of Education"}}, {lbl:"field.grade",v:{ar:"الأول المتوسط",en:"Grade 7"}}, {lbl:"field.subject",v:{ar:"الرياضيات",en:"Mathematics"}} ],
+  plans: [ {lbl:"field.country",v:{ar:"السعودية",en:"Saudi Arabia"}}, {lbl:"field.curriculum",v:{ar:"وزارة التعليم",en:"Ministry of Education"}}, {lbl:"field.grade",v:{ar:"الأول المتوسط",en:"Grade 7"}}, {lbl:"field.subject",v:{ar:"الرياضيات",en:"Mathematics"}} ],
   tcurr: [ {lbl:"field.country",v:{ar:"السعودية",en:"Saudi Arabia"}}, {lbl:"field.curriculum",v:{ar:"وزارة التعليم",en:"Ministry of Education"}}, {lbl:"field.grade",v:{ar:"الأول المتوسط",en:"Grade 7"}}, {lbl:"field.subject",v:{ar:"الرياضيات",en:"Mathematics"}} ],
   ttopic: [ {lbl:"field.mainTopic",v:{ar:"الجبر",en:"Algebra"}}, {lbl:"field.domain",v:null}, {lbl:"field.axis",v:null}, {lbl:"field.subtopic",v:null} ]
 };
@@ -485,9 +486,10 @@ const STATS = [ {n:"+500,000", ar:"كتاب رقمي", en:"Digital books"}, {n:"
 const I18N = {
   ar: {
     "hero.title":"ابحث في سكوبراري", "hero.sub":"كل موارد التعلّم — كتب، فيديوهات، أسئلة، وخطط دروس — في بحث واحد.", "hero.eyebrow":"المكتبة المدرسية الرقمية المتكاملة", "qb.title":"جرّب البحث عن", "modes.label":"اختر نوع البحث",
-    "mode.general":"البحث العام", "mode.books":"مكتبة الكتب الرقمية", "mode.elements":"مكتبة العناصر الرقمية", "mode.tests":"مكتبة الاختبارات", "mode.topic":"بحث بالموضوع", "mode.curriculum":"بحث بالمنهج", "mode.enrich":"المصادر الإثرائية", "sub.topic":"البحث بالموضوع", "sub.curriculum":"البحث بالمنهج", "sub.tcurr":"اختبارات بالمنهج", "sub.ttopic":"اختبارات بالموضوع", "searchby.curriculum":"بالمنهج", "searchby.topic":"بالموضوع", "searchby.label":"طريقة البحث", "subnav.elements":"اختر نوع البحث", "subnav.tests":"اختر نوع الاختبارات",
+    "mode.general":"البحث العام", "mode.books":"مكتبة الكتب الرقمية", "mode.elements":"مكتبة العناصر الرقمية", "mode.tests":"مكتبة الاختبارات", "mode.topic":"بحث بالموضوع", "mode.curriculum":"بحث بالمنهج", "mode.enrich":"المصادر الإثرائية", "sub.topic":"البحث بالموضوع", "sub.curriculum":"البحث بالمنهج", "sub.plans":"خطط الدروس", "sub.tcurr":"اختبارات بالمنهج", "sub.ttopic":"اختبارات بالموضوع", "searchby.curriculum":"بالمنهج", "searchby.topic":"بالموضوع", "searchby.label":"طريقة البحث", "subnav.elements":"اختر نوع البحث", "subnav.tests":"اختر نوع الاختبارات",
     "panel.topic.t":"البحث بالموضوع", "panel.topic.d":"حدّد الموضوع أو المادة للوصول إلى الموارد المرتبطة.",
     "panel.curriculum.t":"البحث بالمنهج", "panel.curriculum.d":"اختر الدولة والمنهج والصف للوصول إلى موارد المقرر.",
+    "panel.plans.t":"خطط الدروس", "panel.plans.d":"اختر الدولة والمنهج والصف لعرض خطط الدروس الجاهزة.",
     "panel.tcurr.t":"الاختبارات بالمنهج", "panel.tcurr.d":"اختر الدولة والمنهج والصف لعرض الاختبارات المرتبطة.",
     "panel.ttopic.t":"الاختبارات بالموضوع", "panel.ttopic.d":"حدّد الموضوع أو المادة لعرض الاختبارات المرتبطة.",
     "general.ph":"ابحث عن موضوع، مادة، درس، سؤال، كتاب أو نوع مورد…", "general.hint":"اضغط Enter أو «بحث» لعرض النتائج بالأسفل.",
@@ -509,9 +511,10 @@ const I18N = {
   },
   en: {
     "hero.title":"Search Schoobrary", "hero.sub":"All your learning resources — books, videos, questions, and lesson plans — in one search.", "hero.eyebrow":"The fully integrated digital school library", "qb.title":"Try searching for", "modes.label":"Choose a search type",
-    "mode.general":"General Search", "mode.books":"Digital Books Library", "mode.elements":"Digital Resources Library", "mode.tests":"Tests Library", "mode.topic":"By Topic", "mode.curriculum":"By Curriculum", "mode.enrich":"Enrichment", "sub.topic":"Search by Topic", "sub.curriculum":"Search by Curriculum", "sub.tcurr":"Tests by Curriculum", "sub.ttopic":"Tests by Topic", "searchby.curriculum":"By Curriculum", "searchby.topic":"By Topic", "searchby.label":"Search by", "subnav.elements":"Choose a search type", "subnav.tests":"Choose a test type",
+    "mode.general":"General Search", "mode.books":"Digital Books Library", "mode.elements":"Digital Resources Library", "mode.tests":"Tests Library", "mode.topic":"By Topic", "mode.curriculum":"By Curriculum", "mode.enrich":"Enrichment", "sub.topic":"Search by Topic", "sub.curriculum":"Search by Curriculum", "sub.plans":"Lesson Plans", "sub.tcurr":"Tests by Curriculum", "sub.ttopic":"Tests by Topic", "searchby.curriculum":"By Curriculum", "searchby.topic":"By Topic", "searchby.label":"Search by", "subnav.elements":"Choose a search type", "subnav.tests":"Choose a test type",
     "panel.topic.t":"Search by Topic", "panel.topic.d":"Choose the topic or subject to reach related resources.",
     "panel.curriculum.t":"Search by Curriculum", "panel.curriculum.d":"Pick country, curriculum and grade to reach course resources.",
+    "panel.plans.t":"Lesson Plans", "panel.plans.d":"Pick country, curriculum and grade to view ready lesson plans.",
     "panel.tcurr.t":"Tests by Curriculum", "panel.tcurr.d":"Pick country, curriculum and grade to view related tests.",
     "panel.ttopic.t":"Tests by Topic", "panel.ttopic.d":"Choose the topic or subject to view related tests.",
     "general.ph":"Search a topic, subject, lesson, question, book or resource type…", "general.hint":"Press Enter or “Search” to show results below.",
@@ -546,11 +549,12 @@ const MODE_ICON = {
   tests:'<path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/>',
   topic:'<path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>',
   curriculum:'<path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 4 19.5z"/>',
+  plans:'<path d="M8 4H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2h-2"/><rect x="8" y="2" width="8" height="4" rx="1"/><line x1="9" y1="12" x2="15" y2="12"/><line x1="9" y1="16" x2="13" y2="16"/>',
   tcurr:'<path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 4 19.5z"/>',
   ttopic:'<path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>',
   enrich:'<polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>'
 };
-const SUBS = { elements:["curriculum","topic"], tests:["tcurr","ttopic"] };
+const SUBS = { elements:["curriculum","topic","plans"], tests:["tcurr","ttopic"] };
 let SUB = "curriculum";
 let SEARCHBY = "curriculum";
 function decoSvg(a){ const l=a+"22"; return `<svg viewBox="0 0 300 160" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg"><rect width="300" height="160" fill="${a}10"/><circle cx="250" cy="22" r="44" fill="${l}"/><circle cx="40" cy="140" r="28" fill="${l}"/><line x1="202" y1="30" x2="224" y2="8" stroke="${a}" stroke-width="1.5" opacity="0.16"/></svg>`; }
@@ -560,6 +564,7 @@ function currCardHtml(c){ const d=T(),ty=TYPES[c.type]; return `<article class="
 function topicCardHtml(c){ const d=T(); return `<article class="card"><div class="card-thumb" style="background:${c.bg}"><div class="card-thumb-bg">${decoSvg(c.accent)}</div><div class="card-badge" style="background:${c.accent}">${svgI('<polygon points="5 3 19 12 5 21 5 3"/>',"#fff",2)}</div><div class="card-tc"><span class="schoopedia">${svgI('<circle cx="12" cy="12" r="10"/><path d="M8 12l3 3 5-5"/>',"#2FA968",2)} SchooPedia</span><div class="ctype-label" style="color:${c.accent}">${c.ar}</div><div class="ctype-sub">${d["obj.sub"]}</div></div></div><div class="card-body"><div class="card-title">${c.title}</div><div class="card-meta"><span>${c.m1}</span><span class="dot"></span><span>${c.m2}</span></div></div><div class="card-foot"><button class="icon-btn">${svgI('<path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/>',"currentColor",2)}</button><button class="icon-btn">${svgI('<path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/>',"currentColor",2)}</button><span class="spacer"></span><button class="btn-details">${d["card.add"]}</button></div></article>`; }
 function pagerHtml(){ return `<div class="pagination"><button class="page-btn">«</button><button class="page-btn">‹</button><button class="page-btn active">1</button><button class="page-btn">2</button><button class="page-btn">3</button><span class="page-dots">…</span><button class="page-btn">34</button><button class="page-btn">›</button><button class="page-btn">»</button></div>`; }
 function carouselHtml(){ return `<div class="carousel-wrap"><button class="carr s" onclick="scrollCar(1)"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg></button><div class="carousel" id="carousel">${CAR_ORDER.map(k=>{const t=TYPES[k];return `<div class="citem"><div class="cbox" style="background:${t.bg}">${svgI(t.svg,t.stroke,1.9)}</div><span>${L(t)}</span></div>`;}).join("")}</div><button class="carr e" onclick="scrollCar(-1)"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg></button></div>`; }
+function plansResults(){ const d=T(); return `<div class="container"><div class="res-topbar"><span class="res-count">${d["panel.plans.t"]}</span></div>${plansHtml()}</div>`; }
 function plansHtml(){ const d=T(); const ic=svgI('<path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/>',"#1E7BE8",2);
   return `<div class="plans-wrap">${PLANS.map((p,i)=>`<div class="accordion-item ${p.open?"open":""}"><div class="accordion-header" onclick="this.parentElement.classList.toggle('open')"><div class="acc-index">${i+1}</div><div class="accordion-title">${p.title}</div><div class="acc-count">${p.lessons.length} ${d["plans.lessons"]}</div><div class="accordion-arrow">${CHEV}</div></div><div class="accordion-body"><div class="accordion-content"><ul class="lesson-list">${p.lessons.map(l=>`<li><span class="lesson-ic">${ic}</span>${l}</li>`).join("")}</ul><div class="accordion-actions"><button class="btn-ghost">${svgI('<rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/>',"currentColor",2)} ${d["plans.embed"]}</button><button class="btn-solid">${d["plans.view"]}</button></div></div></div></div>`).join("")}</div>`; }
 function sidebarHtml(list, applyKey){ const d=T(); return `<aside class="sidebar"><div class="sidebar-box"><div class="sidebar-title">${svgI('<polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"/>',"currentColor",2)}<span>${d["filter.title"]}</span></div>${filtersHtml(list)}<button class="btn-reset">${svgI('<polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"/>',"currentColor",2)} ${d["btn.reset"]}</button><button class="btn-apply">${svgI('<polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"/>',"currentColor",2)} ${d[applyKey]}</button></div></aside>`; }
@@ -607,7 +612,7 @@ function renderResults() {
   let content = "";
   if (MODE === "general") content = generalResults();
   else if (MODE === "books") content = enrichResults();
-  else if (MODE === "elements") content = (SUB === "topic") ? topicResults() : curriculumResults();
+  else if (MODE === "elements") content = (SUB === "topic") ? topicResults() : (SUB === "plans") ? plansResults() : curriculumResults();
   else if (MODE === "tests") content = testsResults(SUB);
   let top = "";
   if (MODE === "general") top = resultsSearchHtml();
