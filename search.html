@@ -346,6 +346,8 @@
   .home-btn { display:inline-flex; align-items:center; gap:8px; height:42px; padding:0 18px; border-radius:var(--r-pill); border:1.5px solid var(--border-strong); background:var(--surface); color:var(--text); font-weight:800; font-size:13.5px; cursor:pointer; transition:all .2s; }
   .home-btn:hover { border-color:var(--primary); color:var(--primary); }
   .home-btn svg { width:16px; height:16px; }
+  /* hide the search selection/filter box inside results (keep search only on main page) */
+  .res-search-wrap, .res-filter-wrap { display: none; }
 </style>
 </head>
 <body>
