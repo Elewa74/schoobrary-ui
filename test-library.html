@@ -462,6 +462,8 @@
     .trow { flex-wrap:wrap; } .tr-meta{order:3; width:100%; padding-top:10px; border-top:1px dashed var(--border);} .tr-act{order:4; width:100%;} .tr-act .tr-btn{flex:1; justify-content:center;}
   }
   @media print { body * { visibility:hidden; } #printArea, #printArea * { visibility:visible; } #printArea { display:block; position:absolute; inset:0; padding:20px; } }
+  .tr-fav.on svg { fill: currentColor; }
+  .dh-fav.on svg { fill: currentColor; }
 </style>
 </head>
 <body>
@@ -519,7 +521,7 @@
 
 <script>
 const I18N={
- ar:{ "crumb.home":"الرئيسية","crumb.tests":"مكتبة الاختبارات","tests.title":"مكتبة الاختبارات","tests.sub":"بنك اختبارات ضخم — فلتر، عاين الأسئلة والإجابات، ثم أسنِد لطلابك.",
+ ar:{ "crumb.home":"الرئيسية","crumb.tests":"مكتبة الاختبارات","tests.title":"مكتبة الاختبارات","tests.sub":"بنك اختبارات ضخم — صفِّ النتائج، عاين الأسئلة والإجابات، ثم أسنِدها إلى طلابك.",
   "search.ph":"ابحث باسم الاختبار أو المادة…","search.btn":"بحث","filters":"الفلاتر","clear":"مسح الكل","tab.all":"الكل","tab.fav":"المفضّلة","tab.recent":"مؤخرًا",
   "sort.by":"ترتيب:","sort.newest":"الأحدث","sort.popular":"الأكثر استخدامًا","sort.qcount":"عدد الأسئلة","sort.diff":"حسب الصعوبة",
   "res.show":"عرض","res.empty":"لا توجد اختبارات مطابقة.","fav.empty":"لا توجد اختبارات في المفضّلة بعد.","rec.empty":"لم تستعرض أي اختبارات بعد.","clearf":"مسح الفلاتر",
